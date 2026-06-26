@@ -393,7 +393,7 @@ function Cta() {
             <Field name="mensagem" label="Mensagem" textarea required />
             <button
               type="submit"
-              className="btn-primary-shine mt-2 w-full rounded-xl px-6 py-4 text-sm font-semibold uppercase tracking-wider"
+              className="btn-dark-shine mt-2 w-full rounded-xl px-6 py-4 text-sm font-semibold uppercase tracking-wider"
             >
               Enviar
             </button>
