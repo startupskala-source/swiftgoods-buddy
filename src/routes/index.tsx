@@ -367,81 +367,96 @@ function Coverage() {
 
 function Cta() {
   return (
-    <section id="contato" className="relative isolate overflow-hidden bg-background py-24 text-foreground md:py-32">
-      <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary/15 blur-3xl" />
-      <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
-      <div className="relative mx-auto grid max-w-7xl gap-16 px-6 md:grid-cols-2 md:items-center">
-        <div>
-          <div className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-            <span className="mr-2 inline-block h-px w-8 align-middle bg-primary" />
-            Fale com a gente
-          </div>
-          <h2 className="font-display text-5xl tracking-wide md:text-6xl">
-            Pronto para <span className="text-primary italic">embarcar</span> sua carga?
-          </h2>
-          <p className="mt-6 max-w-lg text-muted-foreground">
-            Conte o que você precisa transportar, de onde para onde, e a gente monta a melhor solução. Resposta em até 2 horas em dias úteis.
-          </p>
-          <div className="mt-10 space-y-4">
-            <a href="tel:+551140028922" className="flex items-center gap-4 text-lg transition hover:text-primary">
-              <Phone className="h-5 w-5 text-primary" />
-              (11) 4002-8922
-            </a>
-            <a href="mailto:comercial@btltransportes.com.br" className="flex items-center gap-4 text-lg transition hover:text-primary">
-              <Mail className="h-5 w-5 text-primary" />
-              comercial@btltransportes.com.br
-            </a>
-            <div className="flex items-center gap-4 text-lg">
-              <MapPin className="h-5 w-5 text-primary" />
-              Atendimento em todo o Brasil
+    <section id="contato" className="bg-background py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="relative rounded-2xl border border-white/10 bg-neutral-950 p-8 text-white md:p-14">
+          {/* corner plus markers */}
+          <CornerPlus className="-left-2 -top-2" />
+          <CornerPlus className="-right-2 -top-2" />
+          <CornerPlus className="-bottom-2 -left-2" />
+          <CornerPlus className="-bottom-2 -right-2" />
+
+          <div className="grid gap-12 md:grid-cols-2 md:gap-16">
+            {/* left: info */}
+            <div className="md:border-r md:border-white/10 md:pr-12">
+              <h2 className="font-display text-4xl font-bold tracking-tight md:text-6xl">
+                Fale com a gente
+              </h2>
+              <p className="mt-5 max-w-md text-base leading-relaxed text-neutral-400">
+                Tem dúvidas sobre nossos serviços ou precisa de uma cotação?
+                Preencha o formulário ao lado. Respondemos em até 1 dia útil.
+              </p>
+
+              <div className="mt-10 grid gap-6 sm:grid-cols-2">
+                <InfoTile icon={<Mail className="h-5 w-5 text-white" />} label="E-mail" value="comercial@btltransportes.com.br" href="mailto:comercial@btltransportes.com.br" />
+                <InfoTile icon={<Phone className="h-5 w-5 text-white" />} label="Telefone" value="(11) 4002-8922" href="tel:+551140028922" />
+                <InfoTile icon={<MapPin className="h-5 w-5 text-white" />} label="Endereço" value="Atendimento em todo o Brasil" />
+              </div>
             </div>
+
+            {/* right: form */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const f = e.currentTarget as HTMLFormElement;
+                const data = new FormData(f);
+                const body = `Olá, sou ${data.get("nome")}.%0A%0ATelefone: ${data.get("telefone")}%0A%0AMensagem: ${data.get("mensagem")}`;
+                window.location.href = `mailto:comercial@btltransportes.com.br?subject=Contato BTL - ${data.get("nome")}&body=${body}`;
+              }}
+              className="grid gap-5"
+            >
+              <Field name="nome" label="Nome" required />
+              <Field name="email" label="E-mail" type="email" required />
+              <Field name="telefone" label="Telefone" />
+              <Field name="mensagem" label="Mensagem" textarea required />
+              <button
+                type="submit"
+                className="mt-2 w-full rounded-xl bg-neutral-100 px-6 py-4 text-sm font-semibold text-neutral-900 transition hover:bg-white"
+              >
+                Enviar
+              </button>
+            </form>
           </div>
         </div>
-
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const f = e.currentTarget as HTMLFormElement;
-            const data = new FormData(f);
-            const body = `Olá, sou ${data.get("nome")}.%0A%0AOrigem: ${data.get("origem")}%0ADestino: ${data.get("destino")}%0ACarga: ${data.get("carga")}%0A%0AContato: ${data.get("contato")}`;
-            window.location.href = `mailto:comercial@btltransportes.com.br?subject=Cotação BTL&body=${body}`;
-          }}
-          className="rounded-3xl border border-border bg-card p-8 shadow-elegant md:p-10"
-        >
-          <h3 className="font-display text-2xl tracking-wide">Solicitar cotação</h3>
-          <div className="mt-6 grid gap-4">
-            <Field name="nome" label="Seu nome" required />
-            <Field name="contato" label="E-mail ou telefone" required />
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Field name="origem" label="Origem" required />
-              <Field name="destino" label="Destino" required />
-            </div>
-            <Field name="carga" label="Descrição da carga" textarea />
-            <button
-              type="submit"
-              className="btn-primary-shine mt-2 inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold uppercase tracking-wider"
-            >
-              Enviar cotação <ArrowRight className="h-4 w-4" />
-            </button>
-          </div>
-        </form>
       </div>
     </section>
   );
 }
 
-function Field({ name, label, required, textarea }: { name: string; label: string; required?: boolean; textarea?: boolean }) {
+function CornerPlus({ className }: { className?: string }) {
+  return (
+    <span className={`pointer-events-none absolute h-4 w-4 text-white/70 ${className ?? ""}`} aria-hidden>
+      <span className="absolute left-1/2 top-0 h-4 w-px -translate-x-1/2 bg-current" />
+      <span className="absolute top-1/2 left-0 h-px w-4 -translate-y-1/2 bg-current" />
+    </span>
+  );
+}
+
+function InfoTile({ icon, label, value, href }: { icon: React.ReactNode; label: string; value: string; href?: string }) {
+  const Inner = (
+    <div className="flex items-start gap-3">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10">
+        {icon}
+      </div>
+      <div className="min-w-0">
+        <div className="text-sm font-semibold text-white">{label}</div>
+        <div className="truncate text-sm text-neutral-400">{value}</div>
+      </div>
+    </div>
+  );
+  return href ? <a href={href} className="transition hover:opacity-80">{Inner}</a> : Inner;
+}
+
+function Field({ name, label, required, textarea, type = "text" }: { name: string; label: string; required?: boolean; textarea?: boolean; type?: string }) {
   const cls =
-    "w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30";
+    "w-full rounded-xl border border-white/10 bg-black px-4 py-3.5 text-sm text-white placeholder:text-neutral-600 focus:border-white/30 focus:outline-none focus:ring-2 focus:ring-white/10";
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-        {label}
-      </span>
+      <span className="mb-2 block text-sm font-semibold text-white">{label}</span>
       {textarea ? (
-        <textarea name={name} required={required} rows={3} className={cls} />
+        <textarea name={name} required={required} rows={4} className={cls} />
       ) : (
-        <input name={name} required={required} className={cls} />
+        <input name={name} type={type} required={required} className={cls} />
       )}
     </label>
   );
