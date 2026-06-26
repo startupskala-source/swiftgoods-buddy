@@ -85,25 +85,31 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate min-h-[100svh] w-full overflow-hidden"
+      className="relative isolate flex min-h-[100svh] w-full items-center overflow-hidden bg-background"
     >
-      {/* full-bleed truck background */}
-      <img
-        src={heroTruck}
-        alt="Caminhão BTL Transportes em estrada"
-        className="absolute inset-0 -z-10 h-full w-full object-cover"
-      />
-      {/* readability overlays */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/40 to-background" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/80 via-background/30 to-transparent" />
+      {/* layered atmospheric background — no photo, pure motion + color */}
+      <div className="absolute inset-0 -z-30 bg-[radial-gradient(ellipse_at_top_left,theme(colors.primary/25),transparent_55%),radial-gradient(ellipse_at_bottom_right,theme(colors.primary/15),transparent_60%)]" />
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
+      {/* floating orbs */}
+      <div className="absolute -left-32 top-1/4 -z-10 h-[28rem] w-[28rem] animate-float rounded-full bg-primary/30 blur-3xl" />
+      <div className="absolute -right-24 bottom-0 -z-10 h-[32rem] w-[32rem] animate-float rounded-full bg-primary/20 blur-3xl [animation-delay:-3s]" />
+      {/* shimmer line */}
+      <div className="pointer-events-none absolute inset-x-0 top-24 -z-10 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-6 pt-28 pb-20 md:pt-32 md:pb-28">
-        <div className="max-w-2xl animate-fade-up">
-          <h1 className="text-balance font-display text-5xl leading-[0.95] tracking-wide text-foreground sm:text-6xl md:text-7xl">
-            Sua carga <span className="text-primary italic">no destino</span>,
+      <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-center px-6 pt-32 pb-20 md:pt-40 md:pb-32">
+        <div className="max-w-3xl animate-fade-up">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-primary backdrop-blur">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+            </span>
+            Frota ativa · cobertura nacional
+          </div>
+          <h1 className="text-balance font-display text-5xl leading-[0.95] tracking-wide text-foreground sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+            Sua carga <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text italic text-transparent">no destino</span>,
             <br /> sem surpresas.
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/80">
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl">
             Especialistas em <strong className="font-semibold text-foreground">linha branca</strong> e <strong className="font-semibold text-foreground">bazar</strong>. Frota própria, equipe treinada e rastreamento em tempo real do embarque à entrega.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -122,14 +128,18 @@ function Hero() {
             </a>
           </div>
 
-          <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60 md:grid-cols-4">
+          <dl className="mt-16 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60 md:grid-cols-4">
             {[
               ["15+", "anos de estrada"],
               ["98%", "no prazo"],
               ["27", "estados"],
               ["24/7", "monitoramento"],
-            ].map(([k, v]) => (
-              <div key={v} className="bg-card/80 px-5 py-5 backdrop-blur">
+            ].map(([k, v], i) => (
+              <div
+                key={v}
+                className="animate-fade-up bg-card/80 px-5 py-5 backdrop-blur"
+                style={{ animationDelay: `${0.2 + i * 0.1}s` }}
+              >
                 <dt className="font-display text-3xl text-primary">{k}</dt>
                 <dd className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{v}</dd>
               </div>
@@ -137,9 +147,13 @@ function Hero() {
           </dl>
         </div>
       </div>
+
+      {/* bottom fade into next section */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background" />
     </section>
   );
 }
+
 
 function Marquee() {
   const items = [
