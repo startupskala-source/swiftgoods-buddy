@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import warehouse from "@/assets/warehouse.jpg";
+import heroTruck from "@/assets/hero-truck.jpg";
 import btlLogo from "@/assets/btl-logo-new.png.asset.json";
 import muellerLogo from "@/assets/mueller.png.asset.json";
 import osterLogo from "@/assets/oster.png.asset.json";
@@ -86,77 +87,57 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate flex min-h-[100svh] w-full items-center overflow-hidden bg-background"
+      className="relative isolate flex min-h-[100svh] w-full items-center justify-center overflow-hidden"
     >
-      {/* subtle radial accent */}
-      <div className="pointer-events-none absolute -top-40 -right-40 h-[36rem] w-[36rem] rounded-full bg-primary/10 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 -left-40 h-[32rem] w-[32rem] rounded-full bg-primary/5 blur-3xl" />
+      {/* full-bleed background */}
+      <img
+        src={heroTruck}
+        alt="Caminhão BTL em estrada"
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
+      />
+      {/* readability overlay */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/55 via-black/35 to-black/65" />
 
-      <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-center px-6 pt-28 pb-20 md:pt-36 md:pb-28">
-        <div className="max-w-4xl">
-          <div className="mb-6 inline-flex animate-fade-up items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary sm:text-[11px]">
-            <span className="h-2 w-2 rounded-full bg-primary" />
-            Frota ativa · cobertura nacional
-          </div>
+      <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center px-6 pt-32 pb-24 text-center md:pt-40 md:pb-32">
+        <TextEffect
+          as="h1"
+          per="word"
+          preset="blur"
+          delay={0.1}
+          className="font-display text-4xl leading-[1.05] text-white sm:text-5xl md:text-6xl lg:text-7xl"
+        >
+          Sua carga no destino, sem surpresas.
+        </TextEffect>
 
-          <TextEffect
-            as="h1"
-            per="word"
-            preset="blur"
-            delay={0.1}
-            className="font-display text-4xl leading-[1.05] tracking-normal text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+        <TextEffect
+          as="p"
+          per="word"
+          preset="fade"
+          delay={0.5}
+          className="mt-6 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg"
+        >
+          Especialistas em linha branca e bazar. Frota própria, equipe treinada e rastreamento em tempo real — do embarque à entrega.
+        </TextEffect>
+
+        <div
+          className="mt-10 flex items-center gap-3 animate-fade-up"
+          style={{ animationDelay: "0.9s", animationFillMode: "both", opacity: 0 }}
+        >
+          <a
+            href="#contato"
+            className="inline-flex items-center rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg transition hover:scale-[1.02] hover:shadow-xl"
           >
-            Sua carga no destino, sem surpresas.
-          </TextEffect>
-
-          <TextEffect
-            as="p"
-            per="word"
-            preset="fade"
-            delay={0.5}
-            className="mt-8 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl"
+            Solicitar cotação
+          </a>
+          <a
+            href="#servicos"
+            aria-label="Ver serviços"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-white/10 text-white backdrop-blur transition hover:bg-white/20"
           >
-            Especialistas em linha branca e bazar. Frota própria, equipe treinada e rastreamento em tempo real — do embarque à entrega.
-          </TextEffect>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4 animate-fade-up" style={{ animationDelay: "0.7s", animationFillMode: "both", opacity: 0 }}>
-            <a
-              href="#contato"
-              className="btn-glass group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold uppercase tracking-wider"
-            >
-              Solicitar cotação
-              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-            </a>
-            <a
-              href="#servicos"
-              className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-background/40 px-8 py-4 text-sm font-semibold uppercase tracking-wider text-primary backdrop-blur transition hover:border-primary hover:bg-primary/10"
-            >
-              Nossos serviços
-            </a>
-          </div>
-
-          <dl className="mt-16 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60 md:grid-cols-4">
-            {[
-              ["15+", "anos de estrada"],
-              ["98%", "no prazo"],
-              ["27", "estados"],
-              ["24/7", "monitoramento"],
-            ].map(([k, v], i) => (
-              <div
-                key={v}
-                className="animate-fade-up bg-card/80 px-5 py-5 backdrop-blur"
-                style={{ animationDelay: `${0.8 + i * 0.08}s`, animationFillMode: "both", opacity: 0 }}
-              >
-                <dt className="font-display text-3xl text-primary">{k}</dt>
-                <dd className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{v}</dd>
-              </div>
-            ))}
-          </dl>
+            <ArrowRight className="h-4 w-4 -rotate-45" />
+          </a>
         </div>
       </div>
-
-      {/* bottom fade into next section */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background" />
     </section>
   );
 }
