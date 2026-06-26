@@ -163,24 +163,43 @@ function Marquee() {
 
 function Partners() {
   const logos = [
-    { src: muellerLogo.url, alt: "Mueller", width: 200, height: 60 },
-    { src: osterLogo.url, alt: "Oster", width: 200, height: 60 },
-    { src: whirlpoolLogo.url, alt: "Whirlpool", width: 200, height: 60 },
-    { src: panasonicLogo.url, alt: "Panasonic", width: 200, height: 60 },
-    { src: electroluxLogo.url, alt: "Electrolux", width: 200, height: 60 },
+    { src: muellerLogo.url, alt: "Mueller" },
+    { src: osterLogo.url, alt: "Oster" },
+    { src: whirlpoolLogo.url, alt: "Whirlpool" },
+    { src: panasonicLogo.url, alt: "Panasonic" },
+    { src: electroluxLogo.url, alt: "Electrolux" },
   ];
+  const loop = [...logos, ...logos, ...logos];
   return (
-    <section className="relative isolate overflow-hidden bg-white py-20">
+    <section className="relative isolate overflow-hidden bg-white py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-12 flex flex-col items-center gap-3 text-center">
-          <span className="text-base font-medium text-neutral-500">
-            Already used by
+        <div className="mb-10 flex flex-col items-center gap-3 text-center">
+          <span className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">
+            Marcas que confiam
           </span>
-          <h2 className="font-display text-4xl font-bold tracking-tight text-primary md:text-5xl">
-            Best in the Game
+          <h2 className="font-display text-3xl font-bold tracking-tight text-primary md:text-4xl">
+            Parceiros de estrada
           </h2>
         </div>
-        <LogoCloud logos={logos} />
+      </div>
+
+      {/* infinite marquee */}
+      <div className="group relative">
+        {/* edge fades */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent" />
+
+        <div className="flex w-max animate-marquee items-center gap-16 px-8 group-hover:[animation-play-state:paused] md:gap-24">
+          {loop.map((logo, i) => (
+            <img
+              key={`${logo.alt}-${i}`}
+              src={logo.src}
+              alt={logo.alt}
+              className="h-12 w-auto shrink-0 object-contain opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0 md:h-14"
+              loading="lazy"
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
