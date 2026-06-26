@@ -87,8 +87,6 @@ function Hero() {
       id="top"
       className="relative isolate flex min-h-[100svh] w-full items-center overflow-hidden bg-background"
     >
-      {/* clean static gradient backdrop */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,theme(colors.primary/15),transparent_60%)]" />
 
       <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-center px-6 pt-28 pb-20 md:pt-36 md:pb-28">
         <div className="max-w-3xl animate-fade-up">
