@@ -40,7 +40,7 @@ export function ContactCard({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl border border-black/10 bg-white/70 p-6 text-neutral-900 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.18)] backdrop-blur-2xl sm:p-8 md:p-14",
+        "relative overflow-hidden rounded-2xl border border-black/10 bg-white/70 p-6 text-neutral-900 backdrop-blur-2xl sm:p-8 md:p-14",
         className,
       )}
       {...props}
