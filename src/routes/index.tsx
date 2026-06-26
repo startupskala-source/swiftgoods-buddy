@@ -439,8 +439,12 @@ function Footer() {
 
       <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4">
         <div className="md:col-span-1">
-          <div className="flex items-center gap-3">
-            <img src={btlFooterLogo.url} alt="BTL Transportes" className="h-16 w-auto object-contain" loading="lazy" />
+          <div className="flex items-center gap-4">
+            <img src={btlFooterLogo.url} alt="BTL Transportes" className="h-24 w-24 object-contain" loading="lazy" />
+            <div className="leading-tight">
+              <div className="font-display text-2xl tracking-wider text-white">BTL TRANSPORTES</div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-white/70">Transportes e Armazenagem</div>
+            </div>
           </div>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
             Especialistas em linha branca e bazar. Sua carga tratada com o mesmo cuidado de quem a fabricou.
