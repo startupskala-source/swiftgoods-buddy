@@ -294,8 +294,8 @@ function WhyUs() {
     { icon: MapPin, title: "Rastreio em tempo real", desc: "Você acompanha cada quilômetro da sua carga." },
   ];
   return (
-    <section id="diferenciais" className="bg-secondary text-foreground">
-      <div className="mx-auto grid max-w-7xl gap-16 px-6 py-24 md:grid-cols-2 md:py-32">
+    <section id="diferenciais" className="bg-background text-foreground">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:gap-16 md:py-28 lg:gap-20">
         <div className="relative">
           <img
             src={warehouse}
@@ -306,26 +306,26 @@ function WhyUs() {
             height={1100}
           />
         </div>
-        <div>
+        <div className="flex flex-col">
           <div className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
             <span className="mr-2 inline-block h-px w-8 align-middle bg-primary" />
             Por que a BTL
           </div>
-          <h2 className="font-display text-5xl tracking-wide md:text-6xl">
+          <h2 className="font-display text-4xl leading-[1.05] tracking-wide md:text-5xl lg:text-6xl">
             Logística pensada para <span className="text-primary italic">carga delicada.</span>
           </h2>
           <p className="mt-6 max-w-lg text-muted-foreground">
             Linha branca e bazar pedem cuidado redobrado. Cada motorista, ajudante e operador passa por treinamento contínuo — porque uma entrega bem feita começa muito antes do caminhão sair do pátio.
           </p>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {items.map((it) => (
-              <div key={it.title} className="flex gap-4 rounded-2xl border border-border bg-background p-5 transition hover:border-primary/40 hover:shadow-elegant">
+              <div key={it.title} className="flex flex-col gap-3 rounded-2xl border border-border bg-background p-5 transition hover:border-primary/40 hover:shadow-elegant">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10">
                   <it.icon className="h-5 w-5 text-primary" />
                 </div>
-                <div>
-                  <h3 className="font-display text-xl tracking-wide">{it.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{it.desc}</p>
+                <div className="min-w-0">
+                  <h3 className="font-display text-lg leading-tight tracking-wide">{it.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{it.desc}</p>
                 </div>
               </div>
             ))}
@@ -333,6 +333,7 @@ function WhyUs() {
         </div>
       </div>
     </section>
+
   );
 }
 
