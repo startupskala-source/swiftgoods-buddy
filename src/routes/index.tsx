@@ -9,6 +9,7 @@ import panasonicLogo from "@/assets/panasonic-new.jpg.asset.json";
 import electroluxLogo from "@/assets/electrolux.png.asset.json";
 import { LogoCloud } from "@/components/ui/logo-cloud-4";
 import { TruckRoutesMap } from "@/components/ui/truck-routes-map";
+import { TextEffect } from "@/components/ui/text-effect";
 import {
   ShieldCheck,
   MapPin,
@@ -87,22 +88,43 @@ function Hero() {
       id="top"
       className="relative isolate flex min-h-[100svh] w-full items-center overflow-hidden bg-background"
     >
+      {/* subtle radial accent */}
+      <div className="pointer-events-none absolute -top-40 -right-40 h-[36rem] w-[36rem] rounded-full bg-primary/10 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 -left-40 h-[32rem] w-[32rem] rounded-full bg-primary/5 blur-3xl" />
 
       <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-center px-6 pt-28 pb-20 md:pt-36 md:pb-28">
-        <div className="max-w-3xl animate-fade-up">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary sm:text-[11px]">
-            <span className="h-2 w-2 rounded-full bg-primary" />
+        <div className="max-w-4xl">
+          <TextEffect
+            as="div"
+            per="char"
+            preset="fade"
+            delay={0.1}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary sm:text-[11px]"
+          >
             Frota ativa · cobertura nacional
-          </div>
-          <h1 className="font-display text-4xl leading-[1.05] tracking-normal text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-            Sua carga <span className="text-primary">no destino</span>,
-            <br className="hidden sm:block" /> sem surpresas.
-          </h1>
+          </TextEffect>
 
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl">
-            Especialistas em <strong className="font-semibold text-foreground">linha branca</strong> e <strong className="font-semibold text-foreground">bazar</strong>. Frota própria, equipe treinada e rastreamento em tempo real do embarque à entrega.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <TextEffect
+            as="h1"
+            per="word"
+            preset="blur"
+            delay={0.2}
+            className="font-display text-4xl leading-[1.05] tracking-normal text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+          >
+            Sua carga no destino, sem surpresas.
+          </TextEffect>
+
+          <TextEffect
+            as="p"
+            per="word"
+            preset="fade"
+            delay={0.8}
+            className="mt-8 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl"
+          >
+            Especialistas em linha branca e bazar. Frota própria, equipe treinada e rastreamento em tempo real — do embarque à entrega.
+          </TextEffect>
+
+          <div className="mt-10 flex flex-wrap items-center gap-4 animate-fade-up" style={{ animationDelay: "1.2s" }}>
             <a
               href="#contato"
               className="btn-glass group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold uppercase tracking-wider"
@@ -128,7 +150,7 @@ function Hero() {
               <div
                 key={v}
                 className="animate-fade-up bg-card/80 px-5 py-5 backdrop-blur"
-                style={{ animationDelay: `${0.2 + i * 0.1}s` }}
+                style={{ animationDelay: `${1.4 + i * 0.1}s`, animationFillMode: "both", opacity: 0 }}
               >
                 <dt className="font-display text-3xl text-primary">{k}</dt>
                 <dd className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{v}</dd>
