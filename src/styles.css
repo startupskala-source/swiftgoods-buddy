@@ -259,6 +259,31 @@
   box-shadow: 0 20px 44px -16px color-mix(in oklab, var(--primary) 70%, transparent), inset 0 1px 0 0 rgba(255,255,255,0.3);
 }
 
+@utility btn-dark-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #0a0a0a;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 14px 36px -14px rgba(0,0,0,0.8), inset 0 1px 0 0 rgba(255,255,255,0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+.btn-dark-shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, color-mix(in oklab, var(--primary) 55%, transparent) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: shimmer-sweep 2.8s linear infinite;
+  pointer-events: none;
+}
+.btn-dark-shine:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+  box-shadow: 0 22px 48px -18px rgba(0,0,0,0.9), inset 0 1px 0 0 rgba(255,255,255,0.15);
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
