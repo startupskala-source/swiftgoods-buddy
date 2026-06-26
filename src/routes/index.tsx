@@ -453,21 +453,19 @@ function Footer() {
       {/* glass marsala line at top */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4">
+      <div className="relative mx-auto grid max-w-7xl gap-8 px-6 py-10 md:gap-12 md:py-16 md:grid-cols-4">
         <div className="md:col-span-1">
           <div className="flex items-center gap-4">
-            <img src={btlFooterLogo.url} alt="BTL Transportes" className="h-24 w-24 object-contain" loading="lazy" />
+            <img src={btlFooterLogo.url} alt="BTL Transportes" className="h-20 w-20 object-contain md:h-24 md:w-24" loading="lazy" />
           </div>
-          <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/80">
             Especialistas em linha branca e bazar. Sua carga tratada com o mesmo cuidado de quem a fabricou.
           </p>
         </div>
 
-
-
         <div>
-          <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-primary">Serviços</h4>
-          <ul className="space-y-2 text-sm text-white/70">
+          <h4 className="mb-3 inline-block border-b border-white pb-1 text-sm font-bold uppercase tracking-[0.2em] text-white md:mb-4">Serviços</h4>
+          <ul className="space-y-2 text-sm text-white">
             <li><a href="#servicos" className="transition hover:text-primary">Linha Branca</a></li>
             <li><a href="#servicos" className="transition hover:text-primary">Bazar & Utilidades</a></li>
             <li><a href="#servicos" className="transition hover:text-primary">Armazenagem</a></li>
@@ -476,8 +474,8 @@ function Footer() {
         </div>
 
         <div>
-          <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-primary">Empresa</h4>
-          <ul className="space-y-2 text-sm text-white/70">
+          <h4 className="mb-3 inline-block border-b border-white pb-1 text-sm font-bold uppercase tracking-[0.2em] text-white md:mb-4">Empresa</h4>
+          <ul className="space-y-2 text-sm text-white">
             <li><a href="#diferenciais" className="transition hover:text-primary">Diferenciais</a></li>
             <li><a href="#cobertura" className="transition hover:text-primary">Cobertura</a></li>
             <li><a href="#filiais" className="transition hover:text-primary">Filiais</a></li>
@@ -486,21 +484,22 @@ function Footer() {
         </div>
 
         <div>
-          <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-primary">Fale com a gente</h4>
-          <ul className="space-y-3 text-sm text-white/70">
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> (11) 4002-8922</li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary" /> comercial@btltransportes.com.br</li>
-            <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" /> Atendimento em todo o Brasil</li>
+          <h4 className="mb-3 inline-block border-b border-white pb-1 text-sm font-bold uppercase tracking-[0.2em] text-white md:mb-4">Fale com a gente</h4>
+          <ul className="space-y-3 text-sm text-white">
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-white" /> (11) 4002-8922</li>
+            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-white" /> comercial@btltransportes.com.br</li>
+            <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-white" /> Atendimento em todo o Brasil</li>
           </ul>
         </div>
       </div>
 
       <div className="relative border-t border-white/10 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-white/50 md:flex-row">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-4 text-xs text-white/70 md:flex-row md:py-6">
           <p>© {year} BTL Transportes e Armazenagem. Todos os direitos reservados.</p>
           <p className="uppercase tracking-[0.25em]">CNPJ · ANTT · Carga Segurada</p>
         </div>
       </div>
+
     </footer>
   );
 }
