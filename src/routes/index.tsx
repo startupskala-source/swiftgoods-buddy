@@ -542,17 +542,6 @@ function BrazilFiliais() {
           </p>
         </div>
 
-        <div className="relative mt-16 flex min-h-screen w-full items-center justify-center overflow-hidden rounded-[2rem] border border-border bg-card px-6 py-20 shadow-elegant">
-          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.12),transparent_70%)]" />
-          <TextEffect
-            as="h3"
-            per="word"
-            preset="blur"
-            className="text-center font-display text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl"
-          >
-            Sua carga no destino, sem surpresas.
-          </TextEffect>
-        </div>
 
         <div className="mt-10 group relative mx-auto max-w-3xl overflow-hidden rounded-3xl border border-border bg-card shadow-elegant transition hover:shadow-2xl">
           <div className="flex items-center justify-between border-b border-border px-5 py-3">
