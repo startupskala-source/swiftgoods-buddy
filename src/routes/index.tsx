@@ -541,28 +541,23 @@ function BrazilFiliais() {
             Uma rede de filiais estrategicamente posicionadas para entregar mais rápido, com custo justo e total rastreabilidade.
           </p>
         </div>
+      </div>
 
-
-        <div className="mt-10 group relative mx-auto max-w-3xl overflow-hidden rounded-3xl border border-border bg-card shadow-elegant transition hover:shadow-2xl">
-          <div className="flex items-center justify-between border-b border-border px-5 py-3">
-            <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-              <MapPin className="h-4 w-4 text-primary" />
-              Nossa localização
-            </div>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Mapa ao vivo</span>
-          </div>
+      {/* Mapa full-bleed centrado no Brasil */}
+      <div className="relative mt-12 left-1/2 right-1/2 w-screen -ml-[50vw] -mr-[50vw]">
+        <div className="relative h-[80vh] min-h-[600px] w-full overflow-hidden border-y border-border bg-secondary">
           <iframe
-            title="Mapa BTL Transportes"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=-73.99%2C-33.75%2C-34.79%2C5.27&layer=mapnik"
+            title="Mapa BTL Transportes - Brasil"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-75.0%2C-34.0%2C-34.0%2C6.0&layer=mapnik&marker=-14.235%2C-51.9253"
             loading="lazy"
-            className="aspect-[4/3] w-full bg-secondary"
+            className="absolute inset-0 h-full w-full"
             style={{ border: 0 }}
           />
           <a
             href="https://www.openstreetmap.org/?mlat=-14.235&mlon=-51.9253#map=4/-14.24/-51.93"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center justify-between border-t border-border px-5 py-3 text-xs text-muted-foreground transition hover:text-primary"
+            className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-2 rounded-full bg-background/90 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary shadow-elegant backdrop-blur transition hover:bg-background"
           >
             Ver no mapa completo
             <ArrowRight className="h-3.5 w-3.5" />
