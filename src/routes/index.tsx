@@ -393,7 +393,7 @@ function Cta() {
             <Field name="mensagem" label="Mensagem" textarea required />
             <button
               type="submit"
-              className="btn-dark-shine mt-2 w-full rounded-xl px-6 py-4 text-sm font-semibold uppercase tracking-wider"
+              className="btn-primary-shine mt-2 w-full rounded-xl px-6 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground"
             >
               Enviar
             </button>
@@ -407,10 +407,10 @@ function Cta() {
 
 function Field({ name, label, required, textarea, type = "text" }: { name: string; label: string; required?: boolean; textarea?: boolean; type?: string }) {
   const cls =
-    "w-full rounded-xl border border-white/10 bg-black px-4 py-3.5 text-sm text-white placeholder:text-neutral-600 focus:border-white/30 focus:outline-none focus:ring-2 focus:ring-white/10";
+    "w-full rounded-xl border border-black/10 bg-white/80 px-4 py-3.5 text-sm text-neutral-900 placeholder:text-neutral-400 backdrop-blur focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20";
   return (
     <label className="block">
-      <span className="mb-2 block text-sm font-semibold text-white">{label}</span>
+      <span className="mb-2 block text-sm font-semibold text-neutral-900">{label}</span>
       {textarea ? (
         <textarea name={name} required={required} rows={4} className={cls} />
       ) : (
@@ -419,6 +419,7 @@ function Field({ name, label, required, textarea, type = "text" }: { name: strin
     </label>
   );
 }
+
 
 function Footer() {
   const year = new Date().getFullYear();
