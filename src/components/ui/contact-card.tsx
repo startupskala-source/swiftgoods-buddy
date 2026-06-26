@@ -20,7 +20,7 @@ interface ContactCardProps extends React.HTMLAttributes<HTMLDivElement> {
 function CornerPlus({ className }: { className?: string }) {
   return (
     <span
-      className={cn("pointer-events-none absolute h-4 w-4 text-white/70", className)}
+      className={cn("pointer-events-none absolute h-4 w-4 text-black/40", className)}
       aria-hidden
     >
       <span className="absolute left-1/2 top-0 h-4 w-px -translate-x-1/2 bg-current" />
@@ -40,39 +40,37 @@ export function ContactCard({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl border border-white/10 bg-black p-8 text-white shadow-[0_40px_120px_-20px_rgba(128,0,32,0.55),0_20px_60px_-20px_rgba(0,0,0,0.9)] md:p-14",
+        "relative overflow-hidden rounded-2xl border border-black/10 bg-white/70 p-6 text-neutral-900 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.18)] backdrop-blur-2xl sm:p-8 md:p-14",
         className,
       )}
       {...props}
     >
-      {/* marsala glow accents */}
+      {/* soft glass highlights */}
       <span
         aria-hidden
-        className="pointer-events-none absolute -left-1/4 -top-1/3 h-2/3 w-2/3 rounded-full opacity-50 blur-3xl"
-        style={{ background: "color-mix(in oklab, var(--primary) 70%, transparent)" }}
+        className="pointer-events-none absolute -left-1/4 -top-1/3 h-2/3 w-2/3 rounded-full bg-white/80 opacity-70 blur-3xl"
       />
       <span
         aria-hidden
         className="pointer-events-none absolute -bottom-1/3 -right-1/4 h-2/3 w-2/3 rounded-full opacity-30 blur-3xl"
-        style={{ background: "color-mix(in oklab, var(--primary) 50%, transparent)" }}
+        style={{ background: "color-mix(in oklab, var(--primary) 40%, transparent)" }}
       />
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5"
+        className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/60"
       />
-
 
       <CornerPlus className="-left-2 -top-2" />
       <CornerPlus className="-right-2 -top-2" />
       <CornerPlus className="-bottom-2 -left-2" />
       <CornerPlus className="-bottom-2 -right-2" />
 
-      <div className="grid gap-12 md:grid-cols-2 md:gap-16">
-        <div className="md:border-r md:border-white/10 md:pr-12">
-          <h2 className="font-display text-4xl font-bold tracking-tight md:text-6xl">
+      <div className="relative grid gap-10 md:grid-cols-2 md:gap-16">
+        <div className="md:border-r md:border-black/10 md:pr-12">
+          <h2 className="font-display text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl md:text-6xl">
             {title}
           </h2>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-neutral-400">
+          <p className="mt-5 max-w-md text-base leading-relaxed text-neutral-600">
             {description}
           </p>
 
@@ -81,19 +79,19 @@ export function ContactCard({
               const Icon = info.icon;
               const Inner = (
                 <div className="flex items-start gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10">
-                    <Icon className="h-5 w-5 text-white" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-black/5 ring-1 ring-black/10">
+                    <Icon className="h-5 w-5 text-neutral-900" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-sm font-semibold text-white">{info.label}</div>
-                    <div className="truncate text-sm text-neutral-400">{info.value}</div>
+                    <div className="text-sm font-semibold text-neutral-900">{info.label}</div>
+                    <div className="truncate text-sm text-neutral-600">{info.value}</div>
                   </div>
                 </div>
               );
               return (
                 <div key={info.label} className={info.className}>
                   {info.href ? (
-                    <a href={info.href} className="block transition hover:opacity-80">
+                    <a href={info.href} className="block transition hover:opacity-70">
                       {Inner}
                     </a>
                   ) : (
