@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import warehouse from "@/assets/warehouse.jpg";
-import heroTruck from "@/assets/hero-truck.jpg";
+import heroVideo from "@/assets/hero-truck.mp4.asset.json";
 import btlLogo from "@/assets/btl-logo-new.png.asset.json";
 import muellerLogo from "@/assets/mueller.png.asset.json";
 import osterLogo from "@/assets/oster.png.asset.json";
@@ -89,10 +89,14 @@ function Hero() {
       id="top"
       className="relative isolate flex min-h-[100svh] w-full items-center justify-center overflow-hidden"
     >
-      {/* full-bleed background */}
-      <img
-        src={heroTruck}
-        alt="Caminhão BTL em estrada"
+      {/* full-bleed background video */}
+      <video
+        src={heroVideo.url}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
         className="absolute inset-0 -z-20 h-full w-full object-cover"
       />
       {/* readability overlay */}
