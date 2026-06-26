@@ -184,11 +184,14 @@ function Marquee() {
 
 function Partners() {
   const logos = [
+    { src: whirlpoolLogo.url, alt: "Whirlpool" },
+    { src: electroluxLogo.url, alt: "Electrolux" },
+    { src: panasonicLogo.url, alt: "Panasonic" },
+    { src: philipsLogo.url, alt: "Philips" },
+    { src: colormaqLogo.url, alt: "Colormaq" },
+    { src: geloparLogo.url, alt: "Gelopar" },
     { src: muellerLogo.url, alt: "Mueller" },
     { src: osterLogo.url, alt: "Oster" },
-    { src: whirlpoolLogo.url, alt: "Whirlpool" },
-    { src: panasonicLogo.url, alt: "Panasonic" },
-    { src: electroluxLogo.url, alt: "Electrolux" },
   ];
   const loop = [...logos, ...logos, ...logos];
   return (
