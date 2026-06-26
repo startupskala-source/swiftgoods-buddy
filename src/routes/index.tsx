@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import warehouse from "@/assets/warehouse.jpg";
+import warehouse from "@/assets/warehouse-premium.jpg";
 import heroVideo from "@/assets/hero-truck.mp4.asset.json";
 import heroVideoMobile from "@/assets/hero-truck-mobile.mp4.asset.json";
 import btlLogo from "@/assets/btl-logo-new.png.asset.json";
@@ -291,49 +291,76 @@ function WhyUs() {
     { icon: ShieldCheck, title: "Carga 100% segurada", desc: "Cobertura completa do embarque à entrega." },
     { icon: PackageCheck, title: "Zero avaria", desc: "Embalagens, amarração e manuseio especializado." },
     { icon: Clock, title: "Prazo cumprido", desc: "98% das entregas dentro do prazo combinado." },
-    { icon: MapPin, title: "Rastreio em tempo real", desc: "Você acompanha cada quilômetro da sua carga." },
+    { icon: MapPin, title: "Rastreio em tempo real", desc: "Acompanhe cada quilômetro da sua carga." },
+  ];
+  const stats = [
+    { value: "98%", label: "Entregas no prazo" },
+    { value: "15+", label: "Anos de estrada" },
+    { value: "100%", label: "Carga segurada" },
+    { value: "24/7", label: "Rastreio ativo" },
   ];
   return (
-    <section id="diferenciais" className="bg-background text-foreground">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:gap-16 md:py-28 lg:gap-20">
-        <div className="relative">
+    <section id="diferenciais" className="relative bg-background text-foreground">
+      <div className="grid lg:grid-cols-[1.05fr_1fr]">
+        {/* Image side — full bleed, no card */}
+        <div className="relative h-[60vh] min-h-[460px] w-full lg:h-auto lg:min-h-[760px]">
           <img
             src={warehouse}
-            alt="Galpão da BTL Transportes com linha branca e bazar"
-            className="aspect-[4/5] w-full rounded-3xl object-cover shadow-elegant"
+            alt="Galpão BTL com linha branca paletizada e organizada"
+            className="absolute inset-0 h-full w-full object-cover"
             loading="lazy"
             width={1600}
-            height={1100}
+            height={1200}
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-background/95" />
+          {/* Floating label */}
+          <div className="absolute left-6 top-6 flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-foreground backdrop-blur md:left-10 md:top-10">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            Operação BTL
+          </div>
         </div>
-        <div className="flex flex-col">
-          <div className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-            <span className="mr-2 inline-block h-px w-8 align-middle bg-primary" />
+
+        {/* Content side */}
+        <div className="flex flex-col justify-center px-6 py-20 md:px-12 md:py-28 lg:px-16">
+          <div className="mb-5 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
             Por que a BTL
           </div>
-          <h2 className="font-display text-4xl leading-[1.05] tracking-wide md:text-5xl lg:text-6xl">
-            Logística pensada para <span className="text-primary italic">carga delicada.</span>
+          <h2 className="font-display text-4xl leading-[1.02] tracking-tight md:text-5xl lg:text-6xl">
+            Logística pensada
+            <br />
+            para <span className="text-primary italic">carga delicada.</span>
           </h2>
-          <p className="mt-6 max-w-lg text-muted-foreground">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
             Linha branca e bazar pedem cuidado redobrado. Cada motorista, ajudante e operador passa por treinamento contínuo — porque uma entrega bem feita começa muito antes do caminhão sair do pátio.
           </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+
+          {/* Differentiators as clean list */}
+          <ul className="mt-10 divide-y divide-border border-y border-border">
             {items.map((it) => (
-              <div key={it.title} className="flex flex-col gap-3 rounded-2xl border border-border bg-background p-5 transition hover:border-primary/40 hover:shadow-elegant">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10">
-                  <it.icon className="h-5 w-5 text-primary" />
+              <li key={it.title} className="group flex items-start gap-5 py-5 transition hover:bg-muted/30">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                  <it.icon className="h-5 w-5" strokeWidth={1.75} />
                 </div>
-                <div className="min-w-0">
-                  <h3 className="font-display text-lg leading-tight tracking-wide">{it.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{it.desc}</p>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-display text-lg leading-snug tracking-tight">{it.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{it.desc}</p>
                 </div>
+              </li>
+            ))}
+          </ul>
+
+          {/* Stats strip */}
+          <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <div className="font-display text-3xl tracking-tight text-foreground md:text-4xl">{s.value}</div>
+                <div className="mt-1 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">{s.label}</div>
               </div>
             ))}
           </div>
         </div>
       </div>
     </section>
-
   );
 }
 
