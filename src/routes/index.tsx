@@ -4,6 +4,8 @@ import warehouse from "@/assets/warehouse.jpg";
 import heroVideo from "@/assets/hero-truck.mp4.asset.json";
 import heroVideoMobile from "@/assets/hero-truck-mobile.mp4.asset.json";
 import btlLogo from "@/assets/btl-logo-new.png.asset.json";
+import btlFooterLogo from "@/assets/btl-footer-logo.png.asset.json";
+
 import muellerLogo from "@/assets/mueller.png.asset.json";
 import osterLogo from "@/assets/oster.png.asset.json";
 import whirlpoolLogo from "@/assets/whirlpool.png.asset.json";
