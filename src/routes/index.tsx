@@ -75,7 +75,7 @@ function Nav() {
         </nav>
         <a
           href="#contato"
-          className="btn-glass hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold uppercase tracking-wider md:inline-flex"
+          className="btn-primary-shine hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold uppercase tracking-wider md:inline-flex"
         >
           Solicitar cotação <ArrowRight className="h-4 w-4" />
         </a>
@@ -141,7 +141,7 @@ function Hero() {
         >
           <a
             href="#contato"
-            className="inline-flex items-center rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg transition hover:scale-[1.02] hover:shadow-xl"
+            className="btn-primary-shine inline-flex items-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-wider"
           >
             Solicitar cotação
           </a>
@@ -413,7 +413,7 @@ function Cta() {
             <Field name="carga" label="Descrição da carga" textarea />
             <button
               type="submit"
-              className="btn-glass mt-2 inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold uppercase tracking-wider"
+              className="btn-primary-shine mt-2 inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold uppercase tracking-wider"
             >
               Enviar cotação <ArrowRight className="h-4 w-4" />
             </button>
