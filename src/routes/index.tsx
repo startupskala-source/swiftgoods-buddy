@@ -5,7 +5,7 @@ import btlLogo from "@/assets/btl-logo.png.asset.json";
 import muellerLogo from "@/assets/mueller.png.asset.json";
 import osterLogo from "@/assets/oster.png.asset.json";
 import whirlpoolLogo from "@/assets/whirlpool.png.asset.json";
-import panasonicLogo from "@/assets/panasonic.png.asset.json";
+import panasonicLogo from "@/assets/panasonic-new.jpg.asset.json";
 import electroluxLogo from "@/assets/electrolux.png.asset.json";
 import { LogoCloud } from "@/components/ui/logo-cloud-4";
 import { TruckRoutesMap } from "@/components/ui/truck-routes-map";
@@ -195,7 +195,7 @@ function Partners() {
               key={`${logo.alt}-${i}`}
               src={logo.src}
               alt={logo.alt}
-              className="h-12 w-auto shrink-0 object-contain opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0 md:h-14"
+              className="h-12 w-auto shrink-0 object-contain transition hover:scale-105 md:h-14"
               loading="lazy"
             />
           ))}
