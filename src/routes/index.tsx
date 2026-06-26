@@ -87,28 +87,20 @@ function Hero() {
       id="top"
       className="relative isolate flex min-h-[100svh] w-full items-center overflow-hidden bg-background"
     >
-      {/* layered atmospheric background — no photo, pure motion + color */}
-      <div className="absolute inset-0 -z-30 bg-[radial-gradient(ellipse_at_top_left,theme(colors.primary/25),transparent_55%),radial-gradient(ellipse_at_bottom_right,theme(colors.primary/15),transparent_60%)]" />
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
-      {/* floating orbs */}
-      <div className="absolute -left-32 top-1/4 -z-10 h-[28rem] w-[28rem] animate-float rounded-full bg-primary/30 blur-3xl" />
-      <div className="absolute -right-24 bottom-0 -z-10 h-[32rem] w-[32rem] animate-float rounded-full bg-primary/20 blur-3xl [animation-delay:-3s]" />
-      {/* shimmer line */}
-      <div className="pointer-events-none absolute inset-x-0 top-24 -z-10 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+      {/* clean static gradient backdrop */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,theme(colors.primary/15),transparent_60%)]" />
 
-      <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-center px-6 pt-32 pb-20 md:pt-40 md:pb-32">
+      <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-center px-6 pt-28 pb-20 md:pt-36 md:pb-28">
         <div className="max-w-3xl animate-fade-up">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-primary backdrop-blur">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-            </span>
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary sm:text-[11px]">
+            <span className="h-2 w-2 rounded-full bg-primary" />
             Frota ativa · cobertura nacional
           </div>
-          <h1 className="text-balance font-display text-5xl leading-[0.95] tracking-wide text-foreground sm:text-6xl md:text-7xl lg:text-[5.5rem]">
-            Sua carga <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text italic text-transparent">no destino</span>,
-            <br /> sem surpresas.
+          <h1 className="font-display text-4xl leading-[1.05] tracking-normal text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+            Sua carga <span className="text-primary">no destino</span>,
+            <br className="hidden sm:block" /> sem surpresas.
           </h1>
+
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl">
             Especialistas em <strong className="font-semibold text-foreground">linha branca</strong> e <strong className="font-semibold text-foreground">bazar</strong>. Frota própria, equipe treinada e rastreamento em tempo real do embarque à entrega.
           </p>
