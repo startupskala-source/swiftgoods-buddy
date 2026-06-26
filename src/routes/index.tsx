@@ -193,7 +193,7 @@ function Partners() {
     { src: muellerLogo.url, alt: "Mueller" },
     { src: osterLogo.url, alt: "Oster" },
   ];
-  const loop = [...logos, ...logos, ...logos];
+  const loop = [...logos, ...logos];
   return (
     <section className="relative isolate overflow-hidden bg-white py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-6">
