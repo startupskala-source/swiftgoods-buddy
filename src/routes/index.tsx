@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroTruck from "@/assets/hero-truck.jpg";
 import warehouse from "@/assets/warehouse.jpg";
-import btlLogo from "@/assets/btl-logo.png.asset.json";
+import btlLogo from "@/assets/btl-logo-new.png.asset.json";
 import muellerLogo from "@/assets/mueller.png.asset.json";
 import osterLogo from "@/assets/oster.png.asset.json";
 import whirlpoolLogo from "@/assets/whirlpool.png.asset.json";
@@ -175,7 +175,7 @@ function Partners() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-10 flex flex-col items-center gap-3 text-center">
           <span className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">
-            Marcas que confiam
+            Indústrias que confiam
           </span>
           <h2 className="font-display text-3xl font-bold tracking-tight text-primary md:text-4xl">
             Parceiros de estrada
