@@ -13,6 +13,7 @@ import geloparLogo from "@/assets/gelopar.png.asset.json";
 import colormaqLogo from "@/assets/colormaq.png.asset.json";
 
 import { LogoCloud } from "@/components/ui/logo-cloud-4";
+import { ContactCard } from "@/components/ui/contact-card";
 
 import { TextEffect } from "@/components/ui/text-effect";
 import {
@@ -369,83 +370,40 @@ function Cta() {
   return (
     <section id="contato" className="bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="relative rounded-2xl border border-white/10 bg-neutral-950 p-8 text-white md:p-14">
-          {/* corner plus markers */}
-          <CornerPlus className="-left-2 -top-2" />
-          <CornerPlus className="-right-2 -top-2" />
-          <CornerPlus className="-bottom-2 -left-2" />
-          <CornerPlus className="-bottom-2 -right-2" />
-
-          <div className="grid gap-12 md:grid-cols-2 md:gap-16">
-            {/* left: info */}
-            <div className="md:border-r md:border-white/10 md:pr-12">
-              <h2 className="font-display text-4xl font-bold tracking-tight md:text-6xl">
-                Fale com a gente
-              </h2>
-              <p className="mt-5 max-w-md text-base leading-relaxed text-neutral-400">
-                Tem dúvidas sobre nossos serviços ou precisa de uma cotação?
-                Preencha o formulário ao lado. Respondemos em até 1 dia útil.
-              </p>
-
-              <div className="mt-10 grid gap-6 sm:grid-cols-2">
-                <InfoTile icon={<Mail className="h-5 w-5 text-white" />} label="E-mail" value="comercial@btltransportes.com.br" href="mailto:comercial@btltransportes.com.br" />
-                <InfoTile icon={<Phone className="h-5 w-5 text-white" />} label="Telefone" value="(11) 4002-8922" href="tel:+551140028922" />
-                <InfoTile icon={<MapPin className="h-5 w-5 text-white" />} label="Endereço" value="Atendimento em todo o Brasil" />
-              </div>
-            </div>
-
-            {/* right: form */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const f = e.currentTarget as HTMLFormElement;
-                const data = new FormData(f);
-                const body = `Olá, sou ${data.get("nome")}.%0A%0ATelefone: ${data.get("telefone")}%0A%0AMensagem: ${data.get("mensagem")}`;
-                window.location.href = `mailto:comercial@btltransportes.com.br?subject=Contato BTL - ${data.get("nome")}&body=${body}`;
-              }}
-              className="grid gap-5"
+        <ContactCard
+          infos={[
+            { icon: Mail, label: "E-mail", value: "comercial@btltransportes.com.br", href: "mailto:comercial@btltransportes.com.br" },
+            { icon: Phone, label: "Telefone", value: "(11) 4002-8922", href: "tel:+551140028922" },
+            { icon: MapPin, label: "Endereço", value: "Atendimento em todo o Brasil", className: "sm:col-span-2" },
+          ]}
+        >
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const f = e.currentTarget as HTMLFormElement;
+              const data = new FormData(f);
+              const body = `Olá, sou ${data.get("nome")}.%0A%0ATelefone: ${data.get("telefone")}%0A%0AMensagem: ${data.get("mensagem")}`;
+              window.location.href = `mailto:comercial@btltransportes.com.br?subject=Contato BTL - ${data.get("nome")}&body=${body}`;
+            }}
+            className="grid gap-5"
+          >
+            <Field name="nome" label="Nome" required />
+            <Field name="email" label="E-mail" type="email" required />
+            <Field name="telefone" label="Telefone" />
+            <Field name="mensagem" label="Mensagem" textarea required />
+            <button
+              type="submit"
+              className="mt-2 w-full rounded-xl bg-neutral-100 px-6 py-4 text-sm font-semibold text-neutral-900 transition hover:bg-white"
             >
-              <Field name="nome" label="Nome" required />
-              <Field name="email" label="E-mail" type="email" required />
-              <Field name="telefone" label="Telefone" />
-              <Field name="mensagem" label="Mensagem" textarea required />
-              <button
-                type="submit"
-                className="mt-2 w-full rounded-xl bg-neutral-100 px-6 py-4 text-sm font-semibold text-neutral-900 transition hover:bg-white"
-              >
-                Enviar
-              </button>
-            </form>
-          </div>
-        </div>
+              Enviar
+            </button>
+          </form>
+        </ContactCard>
       </div>
     </section>
   );
 }
 
-function CornerPlus({ className }: { className?: string }) {
-  return (
-    <span className={`pointer-events-none absolute h-4 w-4 text-white/70 ${className ?? ""}`} aria-hidden>
-      <span className="absolute left-1/2 top-0 h-4 w-px -translate-x-1/2 bg-current" />
-      <span className="absolute top-1/2 left-0 h-px w-4 -translate-y-1/2 bg-current" />
-    </span>
-  );
-}
-
-function InfoTile({ icon, label, value, href }: { icon: React.ReactNode; label: string; value: string; href?: string }) {
-  const Inner = (
-    <div className="flex items-start gap-3">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10">
-        {icon}
-      </div>
-      <div className="min-w-0">
-        <div className="text-sm font-semibold text-white">{label}</div>
-        <div className="truncate text-sm text-neutral-400">{value}</div>
-      </div>
-    </div>
-  );
-  return href ? <a href={href} className="transition hover:opacity-80">{Inner}</a> : Inner;
-}
 
 function Field({ name, label, required, textarea, type = "text" }: { name: string; label: string; required?: boolean; textarea?: boolean; type?: string }) {
   const cls =
