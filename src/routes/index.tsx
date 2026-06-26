@@ -8,7 +8,7 @@ import whirlpoolLogo from "@/assets/whirlpool.png.asset.json";
 import panasonicLogo from "@/assets/panasonic-new.jpg.asset.json";
 import electroluxLogo from "@/assets/electrolux.png.asset.json";
 import { LogoCloud } from "@/components/ui/logo-cloud-4";
-import { TruckRoutesMap } from "@/components/ui/truck-routes-map";
+
 import { TextEffect } from "@/components/ui/text-effect";
 import {
   ShieldCheck,
@@ -542,51 +542,42 @@ function BrazilFiliais() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div className="relative mx-auto w-full max-w-2xl">
-            <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-transparent to-primary/20 blur-3xl" />
-            <TruckRoutesMap
-              pins={[
-                { city: "São Paulo", uf: "SP", lat: -23.55, lng: -46.63, hq: true },
-                { city: "Rio de Janeiro", uf: "RJ", lat: -22.91, lng: -43.17 },
-                { city: "Belo Horizonte", uf: "MG", lat: -19.92, lng: -43.94 },
-                { city: "Curitiba", uf: "PR", lat: -25.43, lng: -49.27 },
-                { city: "Porto Alegre", uf: "RS", lat: -30.03, lng: -51.23 },
-                { city: "Brasília", uf: "DF", lat: -15.78, lng: -47.93 },
-                { city: "Salvador", uf: "BA", lat: -12.97, lng: -38.50 },
-                { city: "Recife", uf: "PE", lat: -8.05, lng: -34.88 },
-                { city: "Fortaleza", uf: "CE", lat: -3.73, lng: -38.52 },
-                { city: "Manaus", uf: "AM", lat: -3.10, lng: -60.02 },
-              ]}
-            />
-          </div>
+        <div className="relative mt-16 flex min-h-screen w-full items-center justify-center overflow-hidden rounded-[2rem] border border-border bg-card px-6 py-20 shadow-elegant">
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.12),transparent_70%)]" />
+          <TextEffect
+            as="h3"
+            per="word"
+            preset="blur"
+            className="text-center font-display text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl"
+          >
+            Sua carga no destino, sem surpresas.
+          </TextEffect>
+        </div>
 
-          {/* Real interactive map — user can pin their exact location later */}
-          <div className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-elegant transition hover:shadow-2xl">
-            <div className="flex items-center justify-between border-b border-border px-5 py-3">
-              <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-                <MapPin className="h-4 w-4 text-primary" />
-                Nossa localização
-              </div>
-              <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Mapa ao vivo</span>
+        <div className="mt-10 group relative mx-auto max-w-3xl overflow-hidden rounded-3xl border border-border bg-card shadow-elegant transition hover:shadow-2xl">
+          <div className="flex items-center justify-between border-b border-border px-5 py-3">
+            <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+              <MapPin className="h-4 w-4 text-primary" />
+              Nossa localização
             </div>
-            <iframe
-              title="Mapa BTL Transportes"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-73.99%2C-33.75%2C-34.79%2C5.27&layer=mapnik"
-              loading="lazy"
-              className="aspect-[4/3] w-full bg-secondary"
-              style={{ border: 0 }}
-            />
-            <a
-              href="https://www.openstreetmap.org/?mlat=-14.235&mlon=-51.9253#map=4/-14.24/-51.93"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center justify-between border-t border-border px-5 py-3 text-xs text-muted-foreground transition hover:text-primary"
-            >
-              Ver no mapa completo
-              <ArrowRight className="h-3.5 w-3.5" />
-            </a>
+            <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Mapa ao vivo</span>
           </div>
+          <iframe
+            title="Mapa BTL Transportes"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-73.99%2C-33.75%2C-34.79%2C5.27&layer=mapnik"
+            loading="lazy"
+            className="aspect-[4/3] w-full bg-secondary"
+            style={{ border: 0 }}
+          />
+          <a
+            href="https://www.openstreetmap.org/?mlat=-14.235&mlon=-51.9253#map=4/-14.24/-51.93"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-between border-t border-border px-5 py-3 text-xs text-muted-foreground transition hover:text-primary"
+          >
+            Ver no mapa completo
+            <ArrowRight className="h-3.5 w-3.5" />
+          </a>
         </div>
       </div>
     </section>
