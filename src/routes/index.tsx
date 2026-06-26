@@ -427,15 +427,31 @@ function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="relative isolate overflow-hidden border-t border-white/10 bg-black text-white">
+      {/* background video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="absolute inset-0 -z-20 h-full w-full object-cover md:hidden"
+      >
+        <source src={heroVideoMobile.url} type="video/mp4" />
+      </video>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="absolute inset-0 -z-20 hidden h-full w-full object-cover md:block"
+      >
+        <source src={heroVideo.url} type="video/mp4" />
+      </video>
+      {/* dark overlay for readability */}
+      <div className="absolute inset-0 -z-10 bg-black/75" />
       {/* glass marsala line at top */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-24 opacity-60 blur-2xl"
-        style={{
-          background:
-            "linear-gradient(to bottom, color-mix(in oklab, var(--primary) 45%, transparent), transparent)",
-        }}
-      />
 
       <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4">
         <div className="md:col-span-1">
