@@ -94,37 +94,32 @@ function Hero() {
 
       <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-center px-6 pt-28 pb-20 md:pt-36 md:pb-28">
         <div className="max-w-4xl">
-          <TextEffect
-            as="div"
-            per="char"
-            preset="fade"
-            delay={0.1}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary sm:text-[11px]"
-          >
+          <div className="mb-6 inline-flex animate-fade-up items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary sm:text-[11px]">
+            <span className="h-2 w-2 rounded-full bg-primary" />
             Frota ativa · cobertura nacional
-          </TextEffect>
+          </div>
 
           <TextEffect
             as="h1"
             per="word"
             preset="blur"
-            delay={0.2}
+            delay={0.1}
             className="font-display text-4xl leading-[1.05] tracking-normal text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Sua carga no destino, sem surpresas.
+            {"Sua carga no destino,\nsem surpresas."}
           </TextEffect>
 
           <TextEffect
             as="p"
             per="word"
             preset="fade"
-            delay={0.8}
+            delay={0.5}
             className="mt-8 max-w-xl text-lg leading-relaxed text-foreground/80 md:text-xl"
           >
             Especialistas em linha branca e bazar. Frota própria, equipe treinada e rastreamento em tempo real — do embarque à entrega.
           </TextEffect>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4 animate-fade-up" style={{ animationDelay: "1.2s" }}>
+          <div className="mt-10 flex flex-wrap items-center gap-4 animate-fade-up" style={{ animationDelay: "0.7s", animationFillMode: "both", opacity: 0 }}>
             <a
               href="#contato"
               className="btn-glass group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold uppercase tracking-wider"
@@ -150,7 +145,7 @@ function Hero() {
               <div
                 key={v}
                 className="animate-fade-up bg-card/80 px-5 py-5 backdrop-blur"
-                style={{ animationDelay: `${1.4 + i * 0.1}s`, animationFillMode: "both", opacity: 0 }}
+                style={{ animationDelay: `${0.8 + i * 0.08}s`, animationFillMode: "both", opacity: 0 }}
               >
                 <dt className="font-display text-3xl text-primary">{k}</dt>
                 <dd className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{v}</dd>
