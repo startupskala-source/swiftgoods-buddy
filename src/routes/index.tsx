@@ -7,7 +7,7 @@ import btlLogo from "@/assets/btl-logo-new.png.asset.json";
 import muellerLogo from "@/assets/mueller.png.asset.json";
 import osterLogo from "@/assets/oster.png.asset.json";
 import whirlpoolLogo from "@/assets/whirlpool.png.asset.json";
-import panasonicLogo from "@/assets/panasonic-new.jpg.asset.json";
+import philipsLogo from "@/assets/philips.png.asset.json";
 import electroluxLogo from "@/assets/electrolux.png.asset.json";
 import geloparLogo from "@/assets/gelopar.png.asset.json";
 import colormaqLogo from "@/assets/colormaq.png.asset.json";
@@ -186,7 +186,7 @@ function Partners() {
   const logos = [
     { src: whirlpoolLogo.url, alt: "Whirlpool" },
     { src: electroluxLogo.url, alt: "Electrolux" },
-    { src: panasonicLogo.url, alt: "Panasonic" },
+    { src: philipsLogo.url, alt: "Philips" },
     
     { src: colormaqLogo.url, alt: "Colormaq" },
     { src: geloparLogo.url, alt: "Gelopar" },
