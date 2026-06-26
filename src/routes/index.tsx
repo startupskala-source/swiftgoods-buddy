@@ -438,23 +438,66 @@ function Field({ name, label, required, textarea }: { name: string; label: strin
 }
 
 function Footer() {
+  const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-border bg-secondary">
-      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-10 md:flex-row md:items-center">
-        <div className="flex items-center gap-3">
-          <img src={btlLogo.url} alt="BTL Transportes" className="h-12 w-12 object-contain" />
-          <div>
-            <div className="font-display text-xl tracking-wider text-foreground">BTL Transportes</div>
-            <div className="text-xs text-muted-foreground">Transportes e Armazenagem · Brasil</div>
+    <footer className="relative isolate overflow-hidden border-t border-border bg-secondary">
+      <div className="pointer-events-none absolute -left-32 top-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 bottom-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4">
+        <div className="md:col-span-1">
+          <div className="flex items-center gap-3">
+            <img src={btlLogo.url} alt="BTL Transportes" className="h-14 w-14 object-contain" loading="lazy" />
+            <div>
+              <div className="font-display text-xl tracking-wider text-foreground">BTL Transportes</div>
+              <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Transportes e Armazenagem</div>
+            </div>
           </div>
+          <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
+            Especialistas em linha branca e bazar. Sua carga tratada com o mesmo cuidado de quem a fabricou.
+          </p>
         </div>
-        <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} BTL Transportes. Todos os direitos reservados.
-        </p>
+
+        <div>
+          <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-primary">Serviços</h4>
+          <ul className="space-y-2 text-sm text-muted-foreground">
+            <li><a href="#servicos" className="transition hover:text-primary">Linha Branca</a></li>
+            <li><a href="#servicos" className="transition hover:text-primary">Bazar & Utilidades</a></li>
+            <li><a href="#servicos" className="transition hover:text-primary">Armazenagem</a></li>
+            <li><a href="#servicos" className="transition hover:text-primary">Distribuição Nacional</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-primary">Empresa</h4>
+          <ul className="space-y-2 text-sm text-muted-foreground">
+            <li><a href="#diferenciais" className="transition hover:text-primary">Diferenciais</a></li>
+            <li><a href="#cobertura" className="transition hover:text-primary">Cobertura</a></li>
+            <li><a href="#filiais" className="transition hover:text-primary">Filiais</a></li>
+            <li><a href="#contato" className="transition hover:text-primary">Contato</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-primary">Fale com a gente</h4>
+          <ul className="space-y-3 text-sm text-muted-foreground">
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> (11) 4002-8922</li>
+            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary" /> comercial@btltransportes.com.br</li>
+            <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" /> Atendimento em todo o Brasil</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="relative border-t border-border">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-muted-foreground md:flex-row">
+          <p>© {year} BTL Transportes e Armazenagem. Todos os direitos reservados.</p>
+          <p className="uppercase tracking-[0.25em]">CNPJ · ANTT · Carga Segurada</p>
+        </div>
       </div>
     </footer>
   );
 }
+
 
 // ============================================================================
 // Brazil filiais map
@@ -492,8 +535,8 @@ function BrazilFiliais() {
           </p>
         </div>
 
-        <div className="mt-16">
-          <div className="relative mx-auto w-full max-w-3xl">
+        <div className="mt-16 grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div className="relative mx-auto w-full max-w-2xl">
             <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-transparent to-primary/20 blur-3xl" />
             <TruckRoutesMap
               pins={[
@@ -510,8 +553,36 @@ function BrazilFiliais() {
               ]}
             />
           </div>
+
+          {/* Real interactive map — user can pin their exact location later */}
+          <div className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-elegant transition hover:shadow-2xl">
+            <div className="flex items-center justify-between border-b border-border px-5 py-3">
+              <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                <MapPin className="h-4 w-4 text-primary" />
+                Nossa localização
+              </div>
+              <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Mapa ao vivo</span>
+            </div>
+            <iframe
+              title="Mapa BTL Transportes"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-73.99%2C-33.75%2C-34.79%2C5.27&layer=mapnik"
+              loading="lazy"
+              className="aspect-[4/3] w-full bg-secondary"
+              style={{ border: 0 }}
+            />
+            <a
+              href="https://www.openstreetmap.org/?mlat=-14.235&mlon=-51.9253#map=4/-14.24/-51.93"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-between border-t border-border px-5 py-3 text-xs text-muted-foreground transition hover:text-primary"
+            >
+              Ver no mapa completo
+              <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
