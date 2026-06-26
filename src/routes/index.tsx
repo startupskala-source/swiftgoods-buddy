@@ -447,10 +447,7 @@ function Footer() {
           </p>
         </div>
 
-          <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
-            Especialistas em linha branca e bazar. Sua carga tratada com o mesmo cuidado de quem a fabricou.
-          </p>
-        </div>
+
 
         <div>
           <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-primary">Serviços</h4>
