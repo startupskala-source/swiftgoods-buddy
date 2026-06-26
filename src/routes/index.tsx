@@ -83,22 +83,27 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative isolate overflow-hidden bg-background">
-      {/* decorative gradient blobs */}
-      <div className="pointer-events-none absolute -top-32 -right-32 h-[28rem] w-[28rem] rounded-full bg-primary/10 blur-3xl" />
-      <div className="pointer-events-none absolute top-1/2 -left-40 h-[26rem] w-[26rem] rounded-full bg-primary/5 blur-3xl" />
+    <section
+      id="top"
+      className="relative isolate min-h-[100svh] w-full overflow-hidden"
+    >
+      {/* full-bleed truck background */}
+      <img
+        src={heroTruck}
+        alt="Caminhão BTL Transportes em estrada"
+        className="absolute inset-0 -z-10 h-full w-full object-cover"
+      />
+      {/* readability overlays */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/40 to-background" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/80 via-background/30 to-transparent" />
 
-      <div className="relative mx-auto grid max-w-7xl gap-16 px-6 pt-20 pb-28 md:grid-cols-[1.1fr_1fr] md:items-center md:pt-28 md:pb-32">
-        <div className="animate-fade-up">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.25em] text-primary">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            Transportes e Armazenagem · desde 2010
-          </div>
+      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-6 pt-28 pb-20 md:pt-32 md:pb-28">
+        <div className="max-w-2xl animate-fade-up">
           <h1 className="text-balance font-display text-5xl leading-[0.95] tracking-wide text-foreground sm:text-6xl md:text-7xl">
             Sua carga <span className="text-primary italic">no destino</span>,
             <br /> sem surpresas.
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/80">
             Especialistas em <strong className="font-semibold text-foreground">linha branca</strong> e <strong className="font-semibold text-foreground">bazar</strong>. Frota própria, equipe treinada e rastreamento em tempo real do embarque à entrega.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -111,48 +116,25 @@ function Hero() {
             </a>
             <a
               href="#servicos"
-              className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-transparent px-8 py-4 text-sm font-semibold uppercase tracking-wider text-primary transition hover:border-primary hover:bg-primary/5"
+              className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-background/40 px-8 py-4 text-sm font-semibold uppercase tracking-wider text-primary backdrop-blur transition hover:border-primary hover:bg-primary/10"
             >
               Nossos serviços
             </a>
           </div>
 
-          <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-4">
+          <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60 md:grid-cols-4">
             {[
               ["15+", "anos de estrada"],
               ["98%", "no prazo"],
               ["27", "estados"],
               ["24/7", "monitoramento"],
             ].map(([k, v]) => (
-              <div key={v} className="bg-card px-5 py-5">
+              <div key={v} className="bg-card/80 px-5 py-5 backdrop-blur">
                 <dt className="font-display text-3xl text-primary">{k}</dt>
                 <dd className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{v}</dd>
               </div>
             ))}
           </dl>
-        </div>
-
-        <div className="relative">
-          <div className="relative overflow-hidden rounded-3xl shadow-elegant">
-            <img
-              src={heroTruck}
-              alt="Caminhão BTL Transportes em estrada"
-              className="aspect-[4/5] w-full object-cover"
-              width={1200}
-              height={1500}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
-          </div>
-          {/* floating logo medallion */}
-          <div className="absolute -left-6 -top-6 hidden h-28 w-28 items-center justify-center rounded-full border border-border bg-background/90 p-3 shadow-elegant backdrop-blur animate-float md:flex">
-            <img src={btlLogo.url} alt="" className="h-full w-full object-contain" />
-          </div>
-          <div className="absolute -bottom-6 -right-6 hidden rounded-2xl border border-border bg-background p-5 shadow-elegant md:block">
-            <div className="font-display text-3xl leading-none text-primary">+50k</div>
-            <div className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
-              entregas realizadas
-            </div>
-          </div>
         </div>
       </div>
     </section>
