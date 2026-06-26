@@ -424,9 +424,22 @@ function Field({ name, label, required, textarea, type = "text" }: { name: strin
 function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative isolate overflow-hidden border-t border-border bg-secondary">
-      <div className="pointer-events-none absolute -left-32 top-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+    <footer className="relative isolate overflow-hidden border-t border-white/10 bg-black text-white">
+      {/* marsala flash glassmorphism */}
+      <div
+        className="pointer-events-none absolute -left-40 -top-32 h-[28rem] w-[28rem] rounded-full opacity-60 blur-3xl"
+        style={{ background: "color-mix(in oklab, var(--primary) 70%, transparent)" }}
+      />
+      <div
+        className="pointer-events-none absolute -right-40 top-1/3 h-[24rem] w-[24rem] rounded-full opacity-40 blur-3xl"
+        style={{ background: "color-mix(in oklab, var(--primary) 55%, transparent)" }}
+      />
+      <div
+        className="pointer-events-none absolute bottom-0 left-1/3 h-64 w-[40rem] rounded-full opacity-30 blur-3xl"
+        style={{ background: "color-mix(in oklab, var(--primary) 60%, transparent)" }}
+      />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+
 
       <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4">
         <div className="md:col-span-1">
