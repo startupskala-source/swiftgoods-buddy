@@ -106,7 +106,7 @@ function Hero() {
             delay={0.1}
             className="font-display text-4xl leading-[1.05] tracking-normal text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            {"Sua carga no destino,\nsem surpresas."}
+            Sua carga no destino, sem surpresas.
           </TextEffect>
 
           <TextEffect
