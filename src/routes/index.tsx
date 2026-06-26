@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import warehouse from "@/assets/warehouse.jpg";
+import heroTruck from "@/assets/hero-truck.jpg";
 import btlLogo from "@/assets/btl-logo-new.png.asset.json";
 import muellerLogo from "@/assets/mueller.png.asset.json";
 import osterLogo from "@/assets/oster.png.asset.json";
