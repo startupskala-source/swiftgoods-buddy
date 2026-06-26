@@ -413,7 +413,7 @@ function Cta() {
             <Field name="carga" label="Descrição da carga" textarea />
             <button
               type="submit"
-              className="btn-glass mt-2 inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold uppercase tracking-wider"
+              className="btn-primary-shine mt-2 inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold uppercase tracking-wider"
             >
               Enviar cotação <ArrowRight className="h-4 w-4" />
             </button>
