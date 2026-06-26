@@ -141,7 +141,7 @@ function Hero() {
         >
           <a
             href="#contato"
-            className="inline-flex items-center rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg transition hover:scale-[1.02] hover:shadow-xl"
+            className="btn-primary-shine inline-flex items-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-wider"
           >
             Solicitar cotação
           </a>
