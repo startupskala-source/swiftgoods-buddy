@@ -40,25 +40,27 @@ export function ContactCard({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl border border-white/10 p-8 text-white shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] backdrop-blur-2xl md:p-14",
+        "relative overflow-hidden rounded-2xl border border-white/10 bg-black p-8 text-white shadow-[0_40px_120px_-20px_rgba(128,0,32,0.55),0_20px_60px_-20px_rgba(0,0,0,0.9)] md:p-14",
         className,
       )}
-      style={{
-        backgroundImage:
-          "linear-gradient(135deg, color-mix(in oklab, var(--primary) 65%, transparent) 0%, color-mix(in oklab, var(--primary) 25%, transparent) 35%, rgba(0,0,0,0.75) 100%)",
-      }}
       {...props}
     >
-      {/* gloss highlight */}
+      {/* marsala glow accents */}
       <span
         aria-hidden
-        className="pointer-events-none absolute -left-1/3 -top-1/3 h-2/3 w-2/3 rounded-full opacity-40 blur-3xl"
-        style={{ background: "color-mix(in oklab, var(--primary) 55%, transparent)" }}
+        className="pointer-events-none absolute -left-1/4 -top-1/3 h-2/3 w-2/3 rounded-full opacity-50 blur-3xl"
+        style={{ background: "color-mix(in oklab, var(--primary) 70%, transparent)" }}
       />
       <span
         aria-hidden
-        className="pointer-events-none absolute -bottom-1/3 -right-1/4 h-2/3 w-2/3 rounded-full bg-black/60 opacity-60 blur-3xl"
+        className="pointer-events-none absolute -bottom-1/3 -right-1/4 h-2/3 w-2/3 rounded-full opacity-30 blur-3xl"
+        style={{ background: "color-mix(in oklab, var(--primary) 50%, transparent)" }}
       />
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5"
+      />
+
 
       <CornerPlus className="-left-2 -top-2" />
       <CornerPlus className="-right-2 -top-2" />
