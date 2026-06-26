@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import warehouse from "@/assets/warehouse.jpg";
 import heroVideo from "@/assets/hero-truck.mp4.asset.json";
+import heroVideoMobile from "@/assets/hero-truck-mobile.mp4.asset.json";
 import btlLogo from "@/assets/btl-logo-new.png.asset.json";
 import muellerLogo from "@/assets/mueller.png.asset.json";
 import osterLogo from "@/assets/oster.png.asset.json";
@@ -91,14 +92,25 @@ function Hero() {
     >
       {/* full-bleed background video */}
       <video
-        src={heroVideo.url}
         autoPlay
         loop
         muted
         playsInline
         preload="auto"
-        className="absolute inset-0 -z-20 h-full w-full object-cover"
-      />
+        className="absolute inset-0 -z-20 h-full w-full object-cover md:hidden"
+      >
+        <source src={heroVideoMobile.url} type="video/mp4" />
+      </video>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="absolute inset-0 -z-20 hidden h-full w-full object-cover md:block"
+      >
+        <source src={heroVideo.url} type="video/mp4" />
+      </video>
       {/* readability overlay */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/55 via-black/35 to-black/65" />
 
