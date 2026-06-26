@@ -4,6 +4,8 @@ import warehouse from "@/assets/warehouse.jpg";
 import heroVideo from "@/assets/hero-truck.mp4.asset.json";
 import heroVideoMobile from "@/assets/hero-truck-mobile.mp4.asset.json";
 import btlLogo from "@/assets/btl-logo-new.png.asset.json";
+import btlFooterLogo from "@/assets/btl-footer-logo.png.asset.json";
+
 import muellerLogo from "@/assets/mueller.png.asset.json";
 import osterLogo from "@/assets/oster.png.asset.json";
 import whirlpoolLogo from "@/assets/whirlpool.png.asset.json";
@@ -425,35 +427,27 @@ function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="relative isolate overflow-hidden border-t border-white/10 bg-black text-white">
-      {/* marsala flash glassmorphism */}
+      {/* glass marsala line at top */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
       <div
-        className="pointer-events-none absolute -left-40 -top-32 h-[28rem] w-[28rem] rounded-full opacity-60 blur-3xl"
-        style={{ background: "color-mix(in oklab, var(--primary) 70%, transparent)" }}
+        className="pointer-events-none absolute inset-x-0 top-0 h-24 opacity-60 blur-2xl"
+        style={{
+          background:
+            "linear-gradient(to bottom, color-mix(in oklab, var(--primary) 45%, transparent), transparent)",
+        }}
       />
-      <div
-        className="pointer-events-none absolute -right-40 top-1/3 h-[24rem] w-[24rem] rounded-full opacity-40 blur-3xl"
-        style={{ background: "color-mix(in oklab, var(--primary) 55%, transparent)" }}
-      />
-      <div
-        className="pointer-events-none absolute bottom-0 left-1/3 h-64 w-[40rem] rounded-full opacity-30 blur-3xl"
-        style={{ background: "color-mix(in oklab, var(--primary) 60%, transparent)" }}
-      />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-
 
       <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4">
         <div className="md:col-span-1">
           <div className="flex items-center gap-3">
-            <img src={btlLogo.url} alt="BTL Transportes" className="h-14 w-14 object-contain" loading="lazy" />
-            <div>
-              <div className="font-display text-xl tracking-wider text-white">BTL Transportes</div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-white/50">Transportes e Armazenagem</div>
-            </div>
+            <img src={btlFooterLogo.url} alt="BTL Transportes" className="h-16 w-auto object-contain" loading="lazy" />
           </div>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
             Especialistas em linha branca e bazar. Sua carga tratada com o mesmo cuidado de quem a fabricou.
           </p>
         </div>
+
+
 
         <div>
           <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-primary">Serviços</h4>
