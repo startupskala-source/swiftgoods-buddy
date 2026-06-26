@@ -193,7 +193,7 @@ function Partners() {
     { src: muellerLogo.url, alt: "Mueller" },
     { src: osterLogo.url, alt: "Oster" },
   ];
-  const loop = [...logos, ...logos, ...logos];
+  const loop = [...logos, ...logos];
   return (
     <section className="relative isolate overflow-hidden bg-white py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-6">
@@ -213,7 +213,7 @@ function Partners() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent" />
 
-        <div className="flex w-max animate-marquee items-center gap-16 px-8 group-hover:[animation-play-state:paused] md:gap-24">
+        <div className="flex w-max animate-marquee items-center gap-12 px-6 [will-change:transform] [transform:translateZ(0)] group-hover:[animation-play-state:paused] md:gap-24 md:px-8">
           {loop.map((logo, i) => (
             <img
               key={`${logo.alt}-${i}`}
