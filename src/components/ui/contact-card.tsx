@@ -45,20 +45,11 @@ export function ContactCard({
       )}
       {...props}
     >
-      {/* soft glass highlights */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -left-1/4 -top-1/3 h-2/3 w-2/3 rounded-full bg-white/80 opacity-70 blur-3xl"
-      />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -bottom-1/3 -right-1/4 h-2/3 w-2/3 rounded-full opacity-30 blur-3xl"
-        style={{ background: "color-mix(in oklab, var(--primary) 40%, transparent)" }}
-      />
       <span
         aria-hidden
         className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/60"
       />
+
 
       <CornerPlus className="-left-2 -top-2" />
       <CornerPlus className="-right-2 -top-2" />
