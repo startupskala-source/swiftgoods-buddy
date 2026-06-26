@@ -9,6 +9,9 @@ import osterLogo from "@/assets/oster.png.asset.json";
 import whirlpoolLogo from "@/assets/whirlpool.png.asset.json";
 import panasonicLogo from "@/assets/panasonic-new.jpg.asset.json";
 import electroluxLogo from "@/assets/electrolux.png.asset.json";
+import geloparLogo from "@/assets/gelopar.png.asset.json";
+import colormaqLogo from "@/assets/colormaq.png.asset.json";
+import philipsLogo from "@/assets/philips.png.asset.json";
 import { LogoCloud } from "@/components/ui/logo-cloud-4";
 
 import { TextEffect } from "@/components/ui/text-effect";
@@ -181,11 +184,14 @@ function Marquee() {
 
 function Partners() {
   const logos = [
+    { src: whirlpoolLogo.url, alt: "Whirlpool" },
+    { src: electroluxLogo.url, alt: "Electrolux" },
+    { src: panasonicLogo.url, alt: "Panasonic" },
+    { src: philipsLogo.url, alt: "Philips" },
+    { src: colormaqLogo.url, alt: "Colormaq" },
+    { src: geloparLogo.url, alt: "Gelopar" },
     { src: muellerLogo.url, alt: "Mueller" },
     { src: osterLogo.url, alt: "Oster" },
-    { src: whirlpoolLogo.url, alt: "Whirlpool" },
-    { src: panasonicLogo.url, alt: "Panasonic" },
-    { src: electroluxLogo.url, alt: "Electrolux" },
   ];
   const loop = [...logos, ...logos, ...logos];
   return (
