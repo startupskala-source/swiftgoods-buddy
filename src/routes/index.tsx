@@ -211,18 +211,18 @@ function Partners() {
       </div>
 
       {/* infinite marquee */}
-      <div className="group relative">
+      <div className="group relative w-full overflow-hidden">
         {/* edge fades */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent md:w-24" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent md:w-24" />
 
-        <div className="flex w-max animate-marquee items-center gap-12 px-6 [will-change:transform] [transform:translateZ(0)] group-hover:[animation-play-state:paused] md:gap-24 md:px-8">
+        <div className="flex w-max animate-marquee items-center gap-8 px-4 [will-change:transform] [transform:translateZ(0)] group-hover:[animation-play-state:paused] md:gap-24 md:px-8">
           {loop.map((logo, i) => (
             <img
               key={`${logo.alt}-${i}`}
               src={logo.src}
               alt={logo.alt}
-              className="h-12 w-auto shrink-0 object-contain transition hover:scale-105 md:h-14"
+              className="h-8 w-auto shrink-0 object-contain transition hover:scale-105 md:h-14"
               loading="lazy"
             />
           ))}
