@@ -207,7 +207,19 @@ function Partners() {
     { src: muellerLogo.url, alt: "Mueller" },
     { src: osterLogo.url, alt: "Oster" },
   ];
-  const loop = [...logos, ...logos];
+  const Track = () => (
+    <div className="flex shrink-0 items-center gap-8 pr-8 md:gap-24 md:pr-24">
+      {logos.map((logo, i) => (
+        <img
+          key={`${logo.alt}-${i}`}
+          src={logo.src}
+          alt={logo.alt}
+          className="h-8 w-auto shrink-0 object-contain transition hover:scale-105 md:h-14"
+          loading="lazy"
+        />
+      ))}
+    </div>
+  );
   return (
     <section className="relative isolate overflow-hidden bg-white py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-6">
@@ -223,20 +235,12 @@ function Partners() {
 
       {/* infinite marquee */}
       <div className="group relative w-full overflow-hidden">
-        {/* edge fades */}
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent md:w-24" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent md:w-24" />
 
-        <div className="flex w-max animate-marquee items-center gap-8 px-4 [will-change:transform] [transform:translateZ(0)] group-hover:[animation-play-state:paused] md:gap-24 md:px-8">
-          {loop.map((logo, i) => (
-            <img
-              key={`${logo.alt}-${i}`}
-              src={logo.src}
-              alt={logo.alt}
-              className="h-8 w-auto shrink-0 object-contain transition hover:scale-105 md:h-14"
-              loading="lazy"
-            />
-          ))}
+        <div className="flex w-max animate-marquee [will-change:transform] [transform:translateZ(0)] group-hover:[animation-play-state:paused]">
+          <Track />
+          <Track />
         </div>
       </div>
     </section>
