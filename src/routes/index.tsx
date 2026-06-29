@@ -64,6 +64,7 @@ function Index() {
       <Partners />
       <Services />
       <WhyUs />
+      <Essence />
       <Coverage />
       <BrazilFiliais />
       <Cta />
