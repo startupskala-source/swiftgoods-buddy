@@ -30,6 +30,16 @@ import {
   ShoppingBag,
   Boxes,
   Route as RouteIcon,
+  Target,
+  Mountain,
+  Telescope,
+  Handshake,
+  Users,
+  Heart,
+  UserCheck,
+  Shield,
+  Scale,
+  Home as HomeIcon,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
