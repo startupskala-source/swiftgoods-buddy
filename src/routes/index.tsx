@@ -30,6 +30,16 @@ import {
   ShoppingBag,
   Boxes,
   Route as RouteIcon,
+  Target,
+  Mountain,
+  Telescope,
+  Handshake,
+  Users,
+  Heart,
+  UserCheck,
+  Shield,
+  Scale,
+  Home as HomeIcon,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -54,6 +64,7 @@ function Index() {
       <Partners />
       <Services />
       <WhyUs />
+      <Essence />
       <Coverage />
       <BrazilFiliais />
       <Cta />
@@ -357,6 +368,99 @@ function WhyUs() {
                 <div className="mt-1 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">{s.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Essence() {
+  const pillars = [
+    {
+      icon: Target,
+      title: "Propósito",
+      desc: "Existimos para mover o Brasil levando muito mais do que cargas. Levamos oportunidades, desenvolvimento e qualidade de vida, conectando pessoas, empresas e sonhos em cada entrega.",
+    },
+    {
+      icon: Mountain,
+      title: "Missão",
+      desc: "Conectar pessoas, empresas e sonhos por meio de soluções logísticas seguras, eficientes e humanas, transportando não apenas mercadorias, mas tudo aquilo que transforma a vida das pessoas.",
+    },
+    {
+      icon: Telescope,
+      title: "Visão",
+      desc: "Construir uma empresa sólida, admirada e perene, referência no transporte rodoviário de cargas, reconhecida pela excelência, pela cultura e pelas pessoas que fazem parte da nossa história.",
+    },
+  ];
+  const values = [
+    { icon: Handshake, title: "Lealdade", desc: "Somos leais com as pessoas, com a empresa e com os compromissos assumidos." },
+    { icon: Users, title: "Comprometimento", desc: "Fazemos o que precisa ser feito com dedicação, responsabilidade e foco em resultados." },
+    { icon: Heart, title: "Gentileza", desc: "Tratamos todos com respeito, empatia e humanidade, sempre." },
+    { icon: UserCheck, title: "Postura de Dono", desc: "Agimos como donos em cada decisão, cuidando do que é nosso e do que é dos outros." },
+    { icon: Shield, title: "Segurança", desc: "Cuidamos da vida, das pessoas e das cargas com atenção, responsabilidade e disciplina." },
+    { icon: Scale, title: "Integridade", desc: "Somos verdadeiros, éticos e transparentes em tudo o que fazemos." },
+    { icon: HomeIcon, title: "Família", desc: "Valorizamos as relações, cuidamos uns dos outros e construímos juntos." },
+  ];
+  return (
+    <section id="essencia" className="relative bg-background">
+      {/* Pillars block */}
+      <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <div className="mb-14 text-center">
+          <div className="mb-4 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
+            Nossa Essência
+          </div>
+          <h2 className="font-display text-4xl leading-[1.02] tracking-tight md:text-6xl">
+            Transportamos muito mais do que <span className="italic text-primary">cargas.</span>
+            <br />
+            Transportamos <span className="italic text-primary">confiança.</span>
+          </h2>
+        </div>
+
+        <div className="grid gap-10 md:grid-cols-3 md:gap-12">
+          {pillars.map((p) => (
+            <div key={p.title} className="flex flex-col items-center text-center md:items-start md:text-left">
+              <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <p.icon className="h-7 w-7" strokeWidth={1.75} />
+              </div>
+              <h3 className="font-display text-2xl tracking-tight text-primary md:text-3xl">{p.title}</h3>
+              <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground md:text-base">
+                {p.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Values block — bordô */}
+      <div className="bg-primary text-primary-foreground">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+          <div className="mb-12 text-center">
+            <div className="mx-auto mb-3 h-px w-14 bg-primary-foreground/40" />
+            <h3 className="font-display text-3xl tracking-[0.15em] md:text-4xl">NOSSOS VALORES</h3>
+            <div className="mx-auto mt-3 h-px w-14 bg-primary-foreground/40" />
+          </div>
+
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
+            {values.map((v) => (
+              <div key={v.title} className="flex flex-col items-center text-center">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-primary-foreground/50">
+                  <v.icon className="h-6 w-6" strokeWidth={1.5} />
+                </div>
+                <h4 className="font-display text-sm tracking-[0.18em] md:text-base">{v.title.toUpperCase()}</h4>
+                <p className="mt-2 text-[11px] leading-relaxed text-primary-foreground/80 md:text-xs">
+                  {v.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[11px] font-medium uppercase tracking-[0.28em] text-primary-foreground/70 md:text-xs">
+            <span>Confiança que <span className="text-primary-foreground">move</span></span>
+            <span className="hidden md:inline">·</span>
+            <span>Parceria que <span className="text-primary-foreground">gera</span></span>
+            <span className="hidden md:inline">·</span>
+            <span>Caminhos que <span className="text-primary-foreground">conectam</span></span>
           </div>
         </div>
       </div>
