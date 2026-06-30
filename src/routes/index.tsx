@@ -740,12 +740,10 @@ function BrazilFiliais() {
         </div>
       </div>
 
-      {/* Mapa full-bleed centrado no Brasil */}
+      {/* Mapa satélite full-bleed, responsivo */}
       <div className="relative mt-12 left-1/2 right-1/2 w-screen -ml-[50vw] -mr-[50vw]">
-        <div className="relative flex h-[80vh] min-h-[600px] w-full items-center justify-center overflow-hidden border-y border-border bg-secondary px-4 py-8">
-          <div className="w-full max-w-5xl">
-            <BrazilMap pins={pins} color="oklch(0.38 0.14 18)" />
-          </div>
+        <div className="relative h-[60vh] min-h-[420px] md:h-[75vh] md:min-h-[600px] w-full overflow-hidden border-y border-border bg-black">
+          <SatelliteBrazilMap pins={pins} color="oklch(0.38 0.14 18)" />
         </div>
       </div>
     </section>
