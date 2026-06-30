@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BrazilMap } from "@/components/ui/brazil-map";
+import { SatelliteBrazilMap } from "@/components/ui/satellite-brazil-map";
 
 import warehouse from "@/assets/warehouse-premium.jpg";
 import heroVideo from "@/assets/hero-truck.mp4.asset.json";
