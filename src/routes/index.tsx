@@ -236,9 +236,11 @@ function Clients() {
     { src: lilianiLogo, alt: "Magazine Liliani" },
     { src: clienteExtraLogo, alt: "Cliente" },
   ];
+  // Widen each track so the combined width exceeds any viewport — no blank gaps.
+  const trackLogos = [...logos, ...logos, ...logos, ...logos, ...logos, ...logos];
   const Track = () => (
     <div className="flex shrink-0 items-center gap-8 pr-8 md:gap-24 md:pr-24">
-      {logos.map((logo, i) => (
+      {trackLogos.map((logo, i) => (
         <img
           key={`${logo.alt}-${i}`}
           src={logo.src}
@@ -456,9 +458,9 @@ function Essence() {
 
 function Coverage() {
   const regions = [
-    { name: "Sudeste", states: "SP · RJ · MG · ES" },
-    { name: "Sul", states: "PR · SC · RS" },
-    { name: "Centro-Oeste", states: "GO · MT · MS · DF" },
+    { name: "Sudeste", states: "SP · MG · ES" },
+    { name: "Sul", states: "PR · SC" },
+    { name: "Centro-Oeste", states: "GO · MT · MS" },
     { name: "Nordeste", states: "BA · PE · CE · e mais" },
     { name: "Norte", states: "PA · AM · TO · e mais" },
   ];
@@ -679,11 +681,8 @@ function Footer() {
 
 const FILIAIS: Array<{ city: string; uf: string; lat: number; lng: number; hq?: boolean }> = [
   { city: "São Paulo", uf: "SP", lat: -23.5505, lng: -46.6333, hq: true },
-  { city: "Rio de Janeiro", uf: "RJ", lat: -22.9068, lng: -43.1729 },
   { city: "Belo Horizonte", uf: "MG", lat: -19.9167, lng: -43.9345 },
   { city: "Curitiba", uf: "PR", lat: -25.4284, lng: -49.2733 },
-  { city: "Porto Alegre", uf: "RS", lat: -30.0346, lng: -51.2177 },
-  { city: "Brasília", uf: "DF", lat: -15.7939, lng: -47.8828 },
   { city: "Salvador", uf: "BA", lat: -12.9777, lng: -38.5016 },
   { city: "Recife", uf: "PE", lat: -8.0476, lng: -34.8770 },
   { city: "Fortaleza", uf: "CE", lat: -3.7319, lng: -38.5267 },
@@ -694,7 +693,6 @@ function BrazilFiliais() {
   const allPins = [
     { city: "Jundiaí", uf: "SP", lat: -23.1864, lng: -46.8842, hq: true },
     { city: "Joinville", uf: "SC", lat: -26.3044, lng: -48.8456 },
-    { city: "São Marcos", uf: "RS", lat: -28.9687, lng: -51.0490 },
     { city: "Camaçari", uf: "BA", lat: -12.6975, lng: -38.3242 },
     { city: "Alfredo Chaves", uf: "ES", lat: -20.5425, lng: -40.8237 },
     { city: "Ananindeua", uf: "PA", lat: -1.3539, lng: -48.3028 },
