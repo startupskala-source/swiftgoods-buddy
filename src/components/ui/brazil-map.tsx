@@ -124,11 +124,14 @@ export function BrazilMap({ pins, color = "oklch(0.38 0.14 18)" }: BrazilMapProp
               <circle cx={pt.x} cy={pt.y} r={r} fill={color} />
               <circle cx={pt.x} cy={pt.y} r={r / 2.4} fill="white" />
               <text
-                x={pt.x + r + 6}
-                y={pt.y + 4}
+                x={pt.x + r + 10}
+                y={pt.y + 5}
                 fontSize={p.hq ? 16 : 13}
                 fontWeight={p.hq ? 800 : 700}
-                fill={color}
+                fill="white"
+                stroke="black"
+                strokeWidth="3"
+                paintOrder="stroke"
                 style={{ fontFamily: "Barlow, sans-serif", letterSpacing: "0.04em" }}
               >
                 {p.uf}

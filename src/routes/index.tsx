@@ -715,16 +715,11 @@ const FILIAIS: Array<{ city: string; uf: string; lat: number; lng: number; hq?: 
 
 function BrazilFiliais() {
   const pins = [
-    { city: "São Paulo", uf: "SP", lat: -23.5505, lng: -46.6333, hq: true },
-    { city: "Rio de Janeiro", uf: "RJ", lat: -22.9068, lng: -43.1729 },
-    { city: "Curitiba", uf: "PR", lat: -25.429, lng: -49.2671 },
-    { city: "Belo Horizonte", uf: "MG", lat: -19.9167, lng: -43.9345 },
-    { city: "Porto Alegre", uf: "RS", lat: -30.0346, lng: -51.2177 },
-    { city: "Salvador", uf: "BA", lat: -12.9714, lng: -38.5014 },
-    { city: "Recife", uf: "PE", lat: -8.0476, lng: -34.877 },
-    { city: "Fortaleza", uf: "CE", lat: -3.7319, lng: -38.5267 },
-    { city: "Manaus", uf: "AM", lat: -3.119, lng: -60.0217 },
-    { city: "Brasília", uf: "DF", lat: -15.8267, lng: -47.9218 },
+    { city: "Jundiaí", uf: "SP", lat: -23.1864, lng: -46.8842, hq: true },
+    { city: "Joinville", uf: "SC", lat: -26.3044, lng: -48.8456 },
+    { city: "São Marcos", uf: "RS", lat: -28.9687, lng: -51.0490 },
+    { city: "Camaçari", uf: "BA", lat: -12.6975, lng: -38.3242 },
+    { city: "Alfredo Chaves", uf: "ES", lat: -20.5425, lng: -40.8237 },
   ];
   return (
     <section id="filiais" className="relative overflow-hidden bg-background py-24 md:py-32">
