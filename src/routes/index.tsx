@@ -506,54 +506,107 @@ function Coverage() {
 
 function Cta() {
   return (
-    <section id="contato" className="bg-background py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-6">
-        <ContactCard
-          infos={[
-            { icon: Mail, label: "E-mail", value: "comercial@btltransportes.com.br", href: "mailto:comercial@btltransportes.com.br" },
-            { icon: Phone, label: "Telefone", value: "(11) 4002-8922", href: "tel:+551140028922" },
-            { icon: MapPin, label: "Endereço", value: "Atendimento em todo o Brasil", className: "sm:col-span-2" },
-          ]}
+    <section id="contato" className="bg-white py-20 md:py-28">
+      <div className="mx-auto max-w-4xl px-6">
+        {/* Header */}
+        <div className="mb-12 text-center md:mb-16">
+          <h2 className="font-display text-4xl tracking-tight text-primary md:text-5xl lg:text-6xl">
+            Preencha e aguarde o nosso contato.
+          </h2>
+          <p className="mt-4 text-base text-muted-foreground md:text-lg">
+            Preencha ou entre em contato via e-mail
+          </p>
+        </div>
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            const f = e.currentTarget as HTMLFormElement;
+            const data = new FormData(f);
+            const assunto = data.get("assunto")?.toString() || "Contato";
+            const body = `Olá, sou ${data.get("nome")} da empresa ${data.get("empresa")}.%0A%0AAssunto: ${assunto}%0AWhatsApp: ${data.get("whatsapp") || "Não informado"}%0A%0AMensagem:%0A${data.get("mensagem") || ""}`;
+            window.location.href = `mailto:comercial@btltransportes.com.br?subject=Contato BTL - ${assunto}&body=${body}`;
+          }}
+          className="space-y-10"
         >
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              const f = e.currentTarget as HTMLFormElement;
-              const data = new FormData(f);
-              const body = `Olá, sou ${data.get("nome")}.%0A%0ATelefone: ${data.get("telefone")}%0A%0AMensagem: ${data.get("mensagem")}`;
-              window.location.href = `mailto:comercial@btltransportes.com.br?subject=Contato BTL - ${data.get("nome")}&body=${body}`;
-            }}
-            className="grid gap-5"
-          >
-            <Field name="nome" label="Nome" required />
-            <Field name="email" label="E-mail" type="email" required />
-            <Field name="telefone" label="Telefone" />
-            <Field name="mensagem" label="Mensagem" textarea required />
+          {/* Two-column fields */}
+          <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">
+            <UnderlineField name="nome" label="Nome" />
+            <UnderlineField name="empresa" label="Empresa" />
+            <UnderlineField name="email" label="Email" type="email" required />
+            <UnderlineField name="whatsapp" label="WhatsApp" type="tel" />
+          </div>
+
+          {/* Bottom row: radios + button */}
+          <div className="grid items-end gap-10 md:grid-cols-2">
+            {/* Radio group */}
+            <fieldset>
+              <legend className="mb-4 text-sm font-medium text-primary">
+                Selecione uma opção
+              </legend>
+              <div className="space-y-3">
+                {[
+                  { value: "orcamentos", label: "Orçamentos" },
+                  { value: "frota", label: "Frota" },
+                  { value: "mecanica", label: "Mecânica/Manutenção" },
+                  { value: "rh", label: "RH" },
+                ].map((opt) => (
+                  <label key={opt.value} className="flex cursor-pointer items-center gap-3 group">
+                    <input
+                      type="radio"
+                      name="assunto"
+                      value={opt.value}
+                      defaultChecked={opt.value === "frota"}
+                      className="peer sr-only"
+                    />
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-primary/40 transition group-hover:border-primary peer-checked:border-primary">
+                      <span className="h-2.5 w-2.5 rounded-full bg-primary opacity-0 transition peer-checked:opacity-100" />
+                    </span>
+                    <span className="text-sm text-foreground/80 transition group-hover:text-foreground peer-checked:text-foreground peer-checked:font-medium">
+                      {opt.label}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            {/* Submit button */}
             <button
               type="submit"
-              className="btn-primary-shine mt-2 w-full rounded-xl px-6 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground"
+              className="btn-primary-shine w-full rounded-sm py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground"
             >
               Enviar
             </button>
-          </form>
-        </ContactCard>
+          </div>
+        </form>
       </div>
     </section>
   );
 }
 
-
-function Field({ name, label, required, textarea, type = "text" }: { name: string; label: string; required?: boolean; textarea?: boolean; type?: string }) {
-  const cls =
-    "w-full rounded-xl border border-black/10 bg-white/80 px-4 py-3.5 text-sm text-neutral-900 placeholder:text-neutral-400 backdrop-blur focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20";
+function UnderlineField({
+  name,
+  label,
+  required,
+  type = "text",
+}: {
+  name: string;
+  label: string;
+  required?: boolean;
+  type?: string;
+}) {
   return (
-    <label className="block">
-      <span className="mb-2 block text-sm font-semibold text-neutral-900">{label}</span>
-      {textarea ? (
-        <textarea name={name} required={required} rows={4} className={cls} />
-      ) : (
-        <input name={name} type={type} required={required} className={cls} />
-      )}
+    <label className="group block">
+      <span className="mb-3 block text-sm font-medium text-primary">
+        {label}
+        {required && <span className="ml-0.5">*</span>}
+      </span>
+      <input
+        name={name}
+        type={type}
+        required={required}
+        className="w-full border-0 border-b-2 border-primary/20 bg-transparent pb-3 text-sm text-foreground outline-none transition focus:border-primary"
+      />
     </label>
   );
 }
