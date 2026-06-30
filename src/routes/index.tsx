@@ -88,7 +88,7 @@ function Nav() {
           href="#contato"
           className="btn-primary-shine hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold uppercase tracking-wider md:inline-flex"
         >
-          SAIBA MAIS <ArrowRight className="h-4 w-4" />
+          Entrar em contato <ArrowRight className="h-4 w-4" />
         </a>
       </div>
     </header>
