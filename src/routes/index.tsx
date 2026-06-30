@@ -250,21 +250,21 @@ function Clients() {
     </div>
   );
   return (
-    <section className="relative isolate overflow-hidden bg-neutral-950 py-16 md:py-20">
+    <section className="relative isolate overflow-hidden bg-white py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-10 flex flex-col items-center gap-3 text-center">
-          <span className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-400">
+          <span className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">
             Clientes
           </span>
-          <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-4xl">
+          <h2 className="font-display text-3xl font-bold tracking-tight text-neutral-900 md:text-4xl">
             Quem confia na BTL
           </h2>
         </div>
       </div>
 
       <div className="group relative w-full overflow-hidden">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-neutral-950 to-transparent md:w-24" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-neutral-950 to-transparent md:w-24" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent md:w-24" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent md:w-24" />
 
         <div className="flex w-max animate-marquee [will-change:transform] [transform:translateZ(0)] group-hover:[animation-play-state:paused]">
           <Track />
