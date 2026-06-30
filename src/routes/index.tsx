@@ -441,7 +441,7 @@ function Coverage() {
             Cobertura nacional
           </div>
           <h2 className="font-display text-5xl tracking-wide md:text-6xl">
-            Do Oiapoque ao Chuí, <span className="text-primary italic">sem perder o ritmo.</span>
+            do sul ao norte do brasil, <span className="text-primary italic">sem perder o ritmo.</span>
           </h2>
         </div>
       <div className="grid gap-px overflow-hidden rounded-sm bg-border md:grid-cols-5">
