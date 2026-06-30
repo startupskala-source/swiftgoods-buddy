@@ -72,7 +72,7 @@ function Nav() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <a href="#top" className="flex items-center gap-3">
-          <img src={btlLogo.url} alt="BTL Transportes e Armazenagem" className="h-12 w-12 object-contain" />
+          <img src={btlLogo} alt="BTL Transportes e Armazenagem" className="h-12 w-12 object-contain" />
           <div className="leading-tight">
             <div className="font-display text-xl tracking-wider text-primary">BTL TRANSPORTES</div>
             <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Transportes e Armazenagem</div>
@@ -110,7 +110,7 @@ function Hero() {
         preload="auto"
         className="absolute inset-0 -z-20 h-full w-full object-cover md:hidden"
       >
-        <source src={heroVideoMobile.url} type="video/mp4" />
+        <source src={heroVideoMobile} type="video/mp4" />
       </video>
       <video
         autoPlay
@@ -120,7 +120,7 @@ function Hero() {
         preload="auto"
         className="absolute inset-0 -z-20 hidden h-full w-full object-cover md:block"
       >
-        <source src={heroVideo.url} type="video/mp4" />
+        <source src={heroVideo} type="video/mp4" />
       </video>
       {/* readability overlay */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/55 via-black/35 to-black/65" />
@@ -192,14 +192,14 @@ function Marquee() {
 
 function Partners() {
   const logos = [
-    { src: whirlpoolLogo.url, alt: "Whirlpool" },
-    { src: electroluxLogo.url, alt: "Electrolux" },
-    { src: philipsLogo.url, alt: "Philips" },
+    { src: whirlpoolLogo, alt: "Whirlpool" },
+    { src: electroluxLogo, alt: "Electrolux" },
+    { src: philipsLogo, alt: "Philips" },
     
-    { src: colormaqLogo.url, alt: "Colormaq" },
-    { src: geloparLogo.url, alt: "Gelopar" },
-    { src: muellerLogo.url, alt: "Mueller" },
-    { src: osterLogo.url, alt: "Oster" },
+    { src: colormaqLogo, alt: "Colormaq" },
+    { src: geloparLogo, alt: "Gelopar" },
+    { src: muellerLogo, alt: "Mueller" },
+    { src: osterLogo, alt: "Oster" },
   ];
   const Track = () => (
     <div className="flex shrink-0 items-center gap-8 pr-8 md:gap-24 md:pr-24">
@@ -573,7 +573,7 @@ function Footer() {
         preload="auto"
         className="absolute inset-0 -z-20 h-full w-full object-cover md:hidden"
       >
-        <source src={heroVideoMobile.url} type="video/mp4" />
+        <source src={heroVideoMobile} type="video/mp4" />
       </video>
       <video
         autoPlay
@@ -583,7 +583,7 @@ function Footer() {
         preload="auto"
         className="absolute inset-0 -z-20 hidden h-full w-full object-cover md:block"
       >
-        <source src={heroVideo.url} type="video/mp4" />
+        <source src={heroVideo} type="video/mp4" />
       </video>
       {/* dark overlay for readability */}
       <div className="absolute inset-0 -z-10 bg-black/75" />
@@ -593,7 +593,7 @@ function Footer() {
       <div className="relative mx-auto grid max-w-7xl gap-8 px-6 py-10 md:gap-12 md:py-16 md:grid-cols-4">
         <div className="md:col-span-1">
           <div className="flex items-center gap-4">
-            <img src={btlFooterLogo.url} alt="BTL Transportes" className="h-20 w-20 object-contain md:h-24 md:w-24" loading="lazy" />
+            <img src={btlFooterLogo} alt="BTL Transportes" className="h-20 w-20 object-contain md:h-24 md:w-24" loading="lazy" />
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/80">
             Especialistas em linha branca e bazar. Sua carga tratada com o mesmo cuidado de quem a fabricou.
