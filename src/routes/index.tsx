@@ -691,7 +691,7 @@ const FILIAIS: Array<{ city: string; uf: string; lat: number; lng: number; hq?: 
 ];
 
 function BrazilFiliais() {
-  const pins = [
+  const allPins = [
     { city: "Jundiaí", uf: "SP", lat: -23.1864, lng: -46.8842, hq: true },
     { city: "Joinville", uf: "SC", lat: -26.3044, lng: -48.8456 },
     { city: "São Marcos", uf: "RS", lat: -28.9687, lng: -51.0490 },
@@ -722,6 +722,14 @@ function BrazilFiliais() {
     { city: "Paraíso do Tocantins", uf: "TO", lat: -10.1736, lng: -48.8819 },
     { city: "Colinas do Tocantins", uf: "TO", lat: -8.0575, lng: -46.4265 },
   ];
+
+  // Keep only one pin per state (prioritize HQ, then first in list)
+  const seen = new Set<string>();
+  const pins = allPins.filter((p) => {
+    if (seen.has(p.uf)) return false;
+    seen.add(p.uf);
+    return true;
+  });
   return (
     <section id="filiais" className="relative overflow-hidden bg-background py-24 md:py-32">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
