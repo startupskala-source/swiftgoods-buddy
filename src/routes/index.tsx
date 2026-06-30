@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SatelliteBrazilMap } from "@/components/ui/satellite-brazil-map";
+import { SeamlessVideo } from "@/components/ui/seamless-video";
 
 import warehouse from "@/assets/warehouse-premium.jpg";
 import heroVideo from "@/assets/hero-truck.mp4";
