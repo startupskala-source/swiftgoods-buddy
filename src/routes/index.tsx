@@ -641,11 +641,12 @@ function Footer() {
             href="https://skalanegocios.com.br"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold transition hover:scale-105"
+            className="skala-credit"
+            aria-label="Feito com carinho SKALA NEGÓCIOS"
           >
-            <span className="rainbow-text">Feito com</span>
-            <span className="heart-blue-orange text-sm">❤</span>
-            <span className="rainbow-text">SKALA NEGÓCIOS</span>
+            <span className="skala-credit-text">Feito com carinho</span>
+            <span className="skala-credit-heart">❤</span>
+            <span className="skala-credit-text">SKALA NEGÓCIOS</span>
           </a>
         </div>
       </div>
