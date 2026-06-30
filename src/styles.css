@@ -311,7 +311,7 @@
 }
 
 .rainbow-text {
-  background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff, #ff0000);
+  background: linear-gradient(90deg, #2563eb, #f97316, #2563eb);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
