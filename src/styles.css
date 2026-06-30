@@ -333,15 +333,14 @@
 
 .skala-credit-text {
   display: inline-block;
-  background-image: linear-gradient(90deg, #1d4ed8 0%, #f97316 35%, #2563eb 65%, #fb923c 100%);
-  background-size: 280% 100%;
-  background-position: 0% 50%;
+  background-image:
+    linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.08) 35%, transparent 55%),
+    linear-gradient(180deg, oklch(0.48 0.16 18) 0%, oklch(0.38 0.14 18) 50%, oklch(0.32 0.12 18) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: rainbow-flow 1.8s linear infinite;
-}
+  text=
 
 .skala-credit-prefix {
   display: inline-block;
