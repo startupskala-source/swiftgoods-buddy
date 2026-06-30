@@ -2,18 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SatelliteBrazilMap } from "@/components/ui/satellite-brazil-map";
 
 import warehouse from "@/assets/warehouse-premium.jpg";
-import heroVideo from "@/assets/hero-truck.mp4.asset.json";
-import heroVideoMobile from "@/assets/hero-truck-mobile.mp4.asset.json";
-import btlLogo from "@/assets/btl-logo-new.png.asset.json";
-import btlFooterLogo from "@/assets/btl-footer-logo.png.asset.json";
+import heroVideo from "@/assets/hero-truck.mp4";
+import heroVideoMobile from "@/assets/hero-truck-mobile.mp4";
+import btlLogo from "@/assets/btl-logo-new.png";
+import btlFooterLogo from "@/assets/btl-footer-logo.png";
 
-import muellerLogo from "@/assets/mueller.png.asset.json";
-import osterLogo from "@/assets/oster.png.asset.json";
-import whirlpoolLogo from "@/assets/whirlpool.png.asset.json";
-import philipsLogo from "@/assets/philips.png.asset.json";
-import electroluxLogo from "@/assets/electrolux.png.asset.json";
-import geloparLogo from "@/assets/gelopar.png.asset.json";
-import colormaqLogo from "@/assets/colormaq.png.asset.json";
+import muellerLogo from "@/assets/mueller.png";
+import osterLogo from "@/assets/oster.png";
+import whirlpoolLogo from "@/assets/whirlpool.png";
+import philipsLogo from "@/assets/philips.png";
+import electroluxLogo from "@/assets/electrolux.png";
+import geloparLogo from "@/assets/gelopar.png";
+import colormaqLogo from "@/assets/colormaq.png";
 
 import { LogoCloud } from "@/components/ui/logo-cloud-4";
 import { ContactCard } from "@/components/ui/contact-card";
