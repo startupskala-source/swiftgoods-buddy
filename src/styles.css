@@ -340,7 +340,8 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  text=
+  text-shadow: 0 0 18px color-mix(in oklab, var(--primary) 40%, transparent);
+}
 
 .skala-credit-prefix {
   display: inline-block;
