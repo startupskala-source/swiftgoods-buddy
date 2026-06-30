@@ -41,7 +41,7 @@ export function SeamlessVideo({ src, mobileSrc, className = "" }: SeamlessVideoP
       {[0, 1].map((i) => (
         <video
           key={i}
-          ref={(p => { refs.current[i] = p; }}
+          ref={(el) => { refs.current[i] = el; }}
           autoPlay={i === 0}
           muted
           playsInline
