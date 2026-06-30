@@ -15,6 +15,10 @@ import philipsLogo from "@/assets/philips.png";
 import electroluxLogo from "@/assets/electrolux.png";
 import geloparLogo from "@/assets/gelopar.png";
 import colormaqLogo from "@/assets/colormaq.png";
+import zemaLogo from "@/assets/zema.svg";
+import mateusLogo from "@/assets/mateus.png";
+import lilianiLogo from "@/assets/liliani.png";
+import clienteExtraLogo from "@/assets/cliente-extra.svg";
 
 import { LogoCloud } from "@/components/ui/logo-cloud-4";
 import { ContactCard } from "@/components/ui/contact-card";
@@ -60,6 +64,7 @@ function Index() {
       <Services />
       <WhyUs />
       <Essence />
+      <Clients />
       <Coverage />
       <BrazilFiliais />
       <Cta />
@@ -214,6 +219,52 @@ function Partners() {
       <div className="group relative w-full overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent md:w-24" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent md:w-24" />
+
+        <div className="flex w-max animate-marquee [will-change:transform] [transform:translateZ(0)] group-hover:[animation-play-state:paused]">
+          <Track />
+          <Track />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Clients() {
+  const logos = [
+    { src: zemaLogo, alt: "Zema" },
+    { src: mateusLogo, alt: "Grupo Mateus" },
+    { src: lilianiLogo, alt: "Magazine Liliani" },
+    { src: clienteExtraLogo, alt: "Cliente" },
+  ];
+  const Track = () => (
+    <div className="flex shrink-0 items-center gap-8 pr-8 md:gap-24 md:pr-24">
+      {logos.map((logo, i) => (
+        <img
+          key={`${logo.alt}-${i}`}
+          src={logo.src}
+          alt={logo.alt}
+          className="h-10 w-auto shrink-0 object-contain opacity-90 transition hover:opacity-100 md:h-16"
+          loading="lazy"
+        />
+      ))}
+    </div>
+  );
+  return (
+    <section className="relative isolate overflow-hidden bg-neutral-950 py-16 md:py-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mb-10 flex flex-col items-center gap-3 text-center">
+          <span className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-400">
+            Clientes
+          </span>
+          <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-4xl">
+            Quem confia na BTL
+          </h2>
+        </div>
+      </div>
+
+      <div className="group relative w-full overflow-hidden">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-neutral-950 to-transparent md:w-24" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-neutral-950 to-transparent md:w-24" />
 
         <div className="flex w-max animate-marquee [will-change:transform] [transform:translateZ(0)] group-hover:[animation-play-state:paused]">
           <Track />
