@@ -636,6 +636,18 @@ function Footer() {
           <p>© {year} BTL Transportes e Armazenagem. Todos os direitos reservados.</p>
           <p className="uppercase tracking-[0.25em]">CNPJ 34.904.898/0003-06 · ANTT · Carga Segurada</p>
         </div>
+        <div className="mx-auto max-w-7xl px-6 pb-6 text-center md:pb-8">
+          <a
+            href="https://skalanegocios.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-white/80 backdrop-blur-sm transition hover:border-primary/40 hover:text-primary hover:bg-primary/10"
+          >
+            <span>Feito com</span>
+            <span className="text-primary">❤</span>
+            <span>SKALA NEGÓCIOS</span>
+          </a>
+        </div>
       </div>
 
     </footer>
