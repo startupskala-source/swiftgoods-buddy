@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SatelliteBrazilMap } from "@/components/ui/satellite-brazil-map";
+import { SeamlessVideo } from "@/components/ui/seamless-video";
 
 import warehouse from "@/assets/warehouse-premium.jpg";
 import heroVideo from "@/assets/hero-truck.mp4";
@@ -101,27 +102,9 @@ function Hero() {
       id="top"
       className="relative isolate flex min-h-[100svh] w-full items-center justify-center overflow-hidden"
     >
-      {/* full-bleed background video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 -z-20 h-full w-full object-cover md:hidden"
-      >
-        <source src={heroVideoMobile} type="video/mp4" />
-      </video>
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 -z-20 hidden h-full w-full object-cover md:block"
-      >
-        <source src={heroVideo} type="video/mp4" />
-      </video>
+      {/* full-bleed background video — seamless infinite loop */}
+      <SeamlessVideo src={heroVideoMobile} className="-z-20 md:hidden" />
+      <SeamlessVideo src={heroVideo} className="-z-20 hidden md:block" />
       {/* readability overlay */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/55 via-black/35 to-black/65" />
 
@@ -564,27 +547,9 @@ function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="relative isolate overflow-hidden border-t border-white/10 bg-black text-white">
-      {/* background video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 -z-20 h-full w-full object-cover md:hidden"
-      >
-        <source src={heroVideoMobile} type="video/mp4" />
-      </video>
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 -z-20 hidden h-full w-full object-cover md:block"
-      >
-        <source src={heroVideo} type="video/mp4" />
-      </video>
+      {/* background video — seamless infinite loop */}
+      <SeamlessVideo src={heroVideoMobile} className="-z-20 md:hidden" />
+      <SeamlessVideo src={heroVideo} className="-z-20 hidden md:block" />
       {/* dark overlay for readability */}
       <div className="absolute inset-0 -z-10 bg-black/75" />
       {/* glass marsala line at top */}
