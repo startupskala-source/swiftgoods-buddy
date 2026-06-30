@@ -322,11 +322,6 @@ function WhyUs() {
             height={1200}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-background/95" />
-          {/* Floating label */}
-          <div className="absolute left-6 top-6 flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-foreground backdrop-blur md:left-10 md:top-10">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            Operação BTL
-          </div>
         </div>
 
         {/* Content side */}
