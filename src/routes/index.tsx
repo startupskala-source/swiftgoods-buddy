@@ -533,7 +533,7 @@ function Cta() {
                   { value: "orcamentos", label: "Orçamentos" },
                   { value: "frota", label: "Frota" },
                   { value: "mecanica", label: "Mecânica/Manutenção" },
-                  { value: "rh", label: "RH" },
+                  { value: "rh", label: "Recrutamento" },
                 ].map((opt) => (
                   <label key={opt.value} className="flex cursor-pointer items-center gap-3 group">
                     <input
