@@ -88,7 +88,7 @@ function Nav() {
           href="#contato"
           className="btn-primary-shine hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold uppercase tracking-wider md:inline-flex"
         >
-          Solicitar cotação <ArrowRight className="h-4 w-4" />
+          SAIBA MAIS <ArrowRight className="h-4 w-4" />
         </a>
       </div>
     </header>
@@ -154,7 +154,7 @@ function Hero() {
             href="#contato"
             className="btn-primary-shine inline-flex items-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-wider"
           >
-            Solicitar cotação
+            SAIBA MAIS
           </a>
           <a
             href="#servicos"
