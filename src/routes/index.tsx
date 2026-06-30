@@ -644,7 +644,7 @@ function Footer() {
             className="skala-credit"
             aria-label="Feito com carinho SKALA NEGÓCIOS"
           >
-            <span className="skala-credit-text">Feito com carinho</span>
+            <span className="skala-credit-prefix">Feito com carinho</span>
             <span className="skala-credit-heart">❤</span>
             <span className="skala-credit-text">SKALA NEGÓCIOS</span>
           </a>
