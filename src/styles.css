@@ -319,7 +319,7 @@
   background: transparent;
   padding: 0;
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -333,6 +333,7 @@
 
 .skala-credit-text {
   display: inline-block;
+  font-weight: 800;
   background-image:
     linear-gradient(135deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.2) 25%, transparent 45%),
     linear-gradient(180deg, oklch(0.58 0.17 18) 0%, oklch(0.45 0.15 18) 35%, oklch(0.32 0.12 18) 100%);
@@ -346,13 +347,15 @@
 .skala-credit-prefix {
   display: inline-block;
   color: #ffffff;
+  font-weight: 400;
   font-size: 0.78rem;
   line-height: 1.2;
 }
 
 .skala-credit-heart {
   display: inline-block;
-  color: #f97316;
+  color: #ffffff;
+  font-weight: 400;
   font-size: 0.95rem;
   line-height: 1;
 }
