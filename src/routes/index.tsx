@@ -714,6 +714,18 @@ const FILIAIS: Array<{ city: string; uf: string; lat: number; lng: number; hq?: 
 ];
 
 function BrazilFiliais() {
+  const pins = [
+    { city: "São Paulo", uf: "SP", lat: -23.5505, lng: -46.6333, hq: true },
+    { city: "Rio de Janeiro", uf: "RJ", lat: -22.9068, lng: -43.1729 },
+    { city: "Curitiba", uf: "PR", lat: -25.429, lng: -49.2671 },
+    { city: "Belo Horizonte", uf: "MG", lat: -19.9167, lng: -43.9345 },
+    { city: "Porto Alegre", uf: "RS", lat: -30.0346, lng: -51.2177 },
+    { city: "Salvador", uf: "BA", lat: -12.9714, lng: -38.5014 },
+    { city: "Recife", uf: "PE", lat: -8.0476, lng: -34.877 },
+    { city: "Fortaleza", uf: "CE", lat: -3.7319, lng: -38.5267 },
+    { city: "Manaus", uf: "AM", lat: -3.119, lng: -60.0217 },
+    { city: "Brasília", uf: "DF", lat: -15.8267, lng: -47.9218 },
+  ];
   return (
     <section id="filiais" className="relative overflow-hidden bg-background py-24 md:py-32">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
@@ -735,23 +747,10 @@ function BrazilFiliais() {
 
       {/* Mapa full-bleed centrado no Brasil */}
       <div className="relative mt-12 left-1/2 right-1/2 w-screen -ml-[50vw] -mr-[50vw]">
-        <div className="relative h-[80vh] min-h-[600px] w-full overflow-hidden border-y border-border bg-secondary">
-          <iframe
-            title="Mapa BTL Transportes - Brasil"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=-75.0%2C-34.0%2C-34.0%2C6.0&layer=mapnik&marker=-14.235%2C-51.9253"
-            loading="lazy"
-            className="absolute inset-0 h-full w-full"
-            style={{ border: 0 }}
-          />
-          <a
-            href="https://www.openstreetmap.org/?mlat=-14.235&mlon=-51.9253#map=4/-14.24/-51.93"
-            target="_blank"
-            rel="noreferrer"
-            className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-2 rounded-full bg-background/90 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary shadow-elegant backdrop-blur transition hover:bg-background"
-          >
-            Ver no mapa completo
-            <ArrowRight className="h-3.5 w-3.5" />
-          </a>
+        <div className="relative flex h-[80vh] min-h-[600px] w-full items-center justify-center overflow-hidden border-y border-border bg-secondary px-4 py-8">
+          <div className="w-full max-w-5xl">
+            <BrazilMap pins={pins} color="oklch(0.38 0.14 18)" />
+          </div>
         </div>
       </div>
     </section>
