@@ -511,19 +511,18 @@ function Cta() {
             e.preventDefault();
             const form = e.currentTarget as HTMLFormElement;
             const data = new FormData(form);
-            data.append("access_key", "15665dfd-0a5d-465b-abbd-97911e59e3d0");
-            data.append("subject", `Contato BTL — ${data.get("assunto") || "Sem assunto"}`);
-            data.append("from_name", "Site BTL Transportes");
+            data.append("_subject", `Contato BTL — ${data.get("assunto") || "Sem assunto"}`);
+            data.append("_replyto", String(data.get("email") || ""));
 
             setStatus("sending");
             setErrorMsg("");
             try {
-              const res = await fetch("https://api.web3forms.com/submit", {
+              const res = await fetch("https://formsubmit.co/ajax/startupskala@gmail.com", {
                 method: "POST",
                 body: data,
               });
               const json = await res.json();
-              if (json.success) {
+              if (json.success || res.ok) {
                 setStatus("success");
                 form.reset();
               } else {
