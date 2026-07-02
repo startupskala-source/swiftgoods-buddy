@@ -586,7 +586,7 @@ function Cta() {
             <button
               type="submit"
               disabled={status === "sending"}
-              className="btn-primary-shine w-full rounded-sm py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground disabled:opacity-70"
+              className="btn-primary-shine w-full rounded-sm py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground cursor-pointer transition-transform duration-150 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {status === "sending" ? "Enviando..." : "Enviar"}
             </button>
