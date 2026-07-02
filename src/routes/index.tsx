@@ -511,19 +511,18 @@ function Cta() {
             e.preventDefault();
             const form = e.currentTarget as HTMLFormElement;
             const data = new FormData(form);
-            data.append("access_key", "15665dfd-0a5d-465b-abbd-97911e59e3d0");
-            data.append("subject", `Contato BTL — ${data.get("assunto") || "Sem assunto"}`);
-            data.append("from_name", "Site BTL Transportes");
+            data.append("_subject", `Contato BTL — ${data.get("assunto") || "Sem assunto"}`);
+            data.append("_replyto", String(data.get("email") || ""));
 
             setStatus("sending");
             setErrorMsg("");
             try {
-              const res = await fetch("https://api.web3forms.com/submit", {
+              const res = await fetch("https://formsubmit.co/ajax/startupskala@gmail.com", {
                 method: "POST",
                 body: data,
               });
               const json = await res.json();
-              if (json.success) {
+              if (json.success || res.ok) {
                 setStatus("success");
                 form.reset();
               } else {
@@ -587,7 +586,7 @@ function Cta() {
             <button
               type="submit"
               disabled={status === "sending"}
-              className="btn-primary-shine w-full rounded-sm py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground disabled:opacity-70"
+              className="btn-primary-shine w-full rounded-sm py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground cursor-pointer transition-transform duration-150 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {status === "sending" ? "Enviando..." : "Enviar"}
             </button>
@@ -684,7 +683,7 @@ function Footer() {
           <h4 className="mb-3 inline-block border-b border-white pb-1 text-sm font-bold uppercase tracking-[0.2em] text-white md:mb-4">Fale com a gente</h4>
           <ul className="space-y-3 text-sm text-white">
             <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-white" /> (11) 4002-8922</li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-white" /> contato@btltransportes.com.br</li>
+            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-white" /> startupskala@gmail.com</li>
             <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-white" /> Atendimento em todo o Brasil</li>
           </ul>
         </div>
