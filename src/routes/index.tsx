@@ -489,6 +489,9 @@ function Coverage() {
 }
 
 function Cta() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState<string>("");
+
   return (
     <section id="contato" className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-4xl px-6">
@@ -503,23 +506,48 @@ function Cta() {
         </div>
 
         <form
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
-            const f = e.currentTarget as HTMLFormElement;
-            const data = new FormData(f);
-            const assunto = data.get("assunto")?.toString() || "Contato";
-            const body = `Olá, sou ${data.get("nome")} da empresa ${data.get("empresa")}.%0A%0AAssunto: ${assunto}%0AWhatsApp: ${data.get("whatsapp") || "Não informado"}%0A%0AMensagem:%0A${data.get("mensagem") || ""}`;
-            window.location.href = `mailto:comercial@btltransportes.com.br?subject=Contato BTL - ${assunto}&body=${body}`;
+            const form = e.currentTarget as HTMLFormElement;
+            const data = new FormData(form);
+            data.append("access_key", "15665dfd-0a5d-465b-abbd-97911e59e3d0");
+            data.append("subject", `Contato BTL — ${data.get("assunto") || "Sem assunto"}`);
+            data.append("from_name", "Site BTL Transportes");
+
+            setStatus("sending");
+            setErrorMsg("");
+            try {
+              const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: data,
+              });
+              const json = await res.json();
+              if (json.success) {
+                setStatus("success");
+                form.reset();
+              } else {
+                setStatus("error");
+                setErrorMsg(json.message || "Falha no envio.");
+              }
+            } catch (err) {
+              setStatus("error");
+              setErrorMsg("Não foi possível enviar. Verifique sua conexão.");
+            }
           }}
           className="space-y-10"
         >
+          {/* Honeypot */}
+          <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
+
           {/* Two-column fields */}
           <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">
-            <UnderlineField name="nome" label="Nome" />
+            <UnderlineField name="nome" label="Nome" required />
             <UnderlineField name="empresa" label="Empresa" />
             <UnderlineField name="email" label="Email" type="email" required />
             <UnderlineField name="whatsapp" label="WhatsApp" type="tel" />
           </div>
+
+          <UnderlineField name="mensagem" label="Mensagem" />
 
           {/* Bottom row: radios + button */}
           <div className="grid items-end gap-10 md:grid-cols-2">
@@ -557,11 +585,23 @@ function Cta() {
             {/* Submit button */}
             <button
               type="submit"
-              className="btn-primary-shine w-full rounded-sm py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground"
+              disabled={status === "sending"}
+              className="btn-primary-shine w-full rounded-sm py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground disabled:opacity-70"
             >
-              Enviar
+              {status === "sending" ? "Enviando..." : "Enviar"}
             </button>
           </div>
+
+          {status === "success" && (
+            <p className="text-center text-sm font-medium text-green-700">
+              Mensagem enviada! Em breve entraremos em contato.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-center text-sm font-medium text-red-700">
+              {errorMsg || "Erro ao enviar. Tente novamente."}
+            </p>
+          )}
         </form>
       </div>
     </section>
