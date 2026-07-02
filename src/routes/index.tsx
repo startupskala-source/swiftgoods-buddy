@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { SatelliteBrazilMap } from "@/components/ui/satellite-brazil-map";
 import { SeamlessVideo } from "@/components/ui/seamless-video";
